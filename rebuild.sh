@@ -3,8 +3,10 @@ set -e
 
 export MACHINE="thinkpad"
 
+read -p "message: " message
+
 git add *
 echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch --flake /etc/nixos#${MACHINE} || exit 1
 gen=$(nixos-rebuild list-generations | grep current)
-git commit -am "$gen"
+git commit -am "$message $gen"
