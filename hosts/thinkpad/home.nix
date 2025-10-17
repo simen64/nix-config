@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../nixosModules/gnome.nix
+    ../../homeManagerModules/gnome.nix
     ../../nixosModules/terminal.nix
     ../../homeManagerModules/rebinds.nix
     ../../homeManagerModules/lazyvim.nix

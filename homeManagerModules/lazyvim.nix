@@ -2,7 +2,7 @@
 
   options = {
     lazyvim = {
-        enable = lib.mkEnableOption "Enable lazyvim module";
+      enable = lib.mkEnableOption "Enable lazyvim module";
     };
   };
 
