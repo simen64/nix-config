@@ -6,13 +6,10 @@
     ../../nixosModules/terminal.nix
     ../../homeManagerModules/rebinds.nix
     ../../homeManagerModules/lazyvim.nix
-    ../../homeManagerModules/git.nix
   ];
 
   rebinds.enable = true;
   lazyvim.enable = true;
-  git.enable = true;
-  gnome-background.enable = false;
 
   home.username = "simen";
   home.homeDirectory = "/home/simen";
@@ -75,6 +72,12 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs.git = {
+    enable = true;
+    userEmail = "joe@example.org";
+    userName = "joe";
   };
 
 
