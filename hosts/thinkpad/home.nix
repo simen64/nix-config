@@ -10,7 +10,6 @@
 
   rebinds.enable = true;
   lazyvim.enable = true;
-  gnome-background.enable = true;
 
   home.username = "simen";
   home.homeDirectory = "/home/simen";
