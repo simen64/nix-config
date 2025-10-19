@@ -6,7 +6,7 @@
     };
   };
 
-  config = lib.mkIf config.lazyvim.enable {
+  config = lib.mkIf config.module.enable {
 
   };
 }

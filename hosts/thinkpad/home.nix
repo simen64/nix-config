@@ -6,6 +6,7 @@
     ../../nixosModules/terminal.nix
     ../../homeManagerModules/rebinds.nix
     ../../homeManagerModules/lazyvim.nix
+    ../../homeManagerModules/dev-environment.nix
   ];
 
   rebinds.enable = true;
