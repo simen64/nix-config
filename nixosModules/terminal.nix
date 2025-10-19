@@ -4,7 +4,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "AdwaitaMono Nerd Font Mono";
+      font-family = "AdwaitaMono Nerd Font";
       font-size = 14;
       window-padding-x = 10;
       window-padding-y = 10;
