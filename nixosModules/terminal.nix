@@ -4,7 +4,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "Droid Sans Mono";
+      font-family = "AdwaitaMono Nerd Font Mono";
       font-size = 14;
       window-padding-x = 10;
       window-padding-y = 10;
