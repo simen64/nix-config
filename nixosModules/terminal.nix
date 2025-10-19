@@ -77,16 +77,16 @@
           {
             foreground = "p:green";
             properties = {
-              branch_icon = "";
-              cherry_pick_icon = "\e29b ";
-              commit_icon = "\f417 ";
+              branch_icon = " ";
+              cherry_pick_icon = " ";
+              commit_icon = " ";
               fetch_status = false;
               fetch_upstream_icon = false;
-              merge_icon = "\e727 ";
-              no_commits_icon = "\f0c3 ";
-              rebase_icon = "\e728 ";
-              revert_icon = "\f0e2 ";
-              tag_icon = "\f412 ";
+              merge_icon = " ";
+              no_commits_icon = " ";
+              rebase_icon = " ";
+              revert_icon = " ";
+              tag_icon = " ";
             };
             template = "{{ .HEAD }} ";
             style = "plain";
