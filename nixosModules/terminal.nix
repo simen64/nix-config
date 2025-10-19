@@ -77,7 +77,7 @@
           {
             foreground = "p:green";
             properties = {
-              branch_icon = "\ue725 ";
+              branch_icon = "\uE725 ";
               cherry_pick_icon = "\e29b ";
               commit_icon = "\f417 ";
               fetch_status = false;
