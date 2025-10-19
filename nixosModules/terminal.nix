@@ -66,7 +66,7 @@
           {
             foreground = "p:orange";
             properties = {
-              folder_icon = "..\ue5fe..";
+              folder_icon = "..\e5fe..";
               home_icon = "~";
               style = "agnoster_short";
             };
@@ -77,16 +77,16 @@
           {
             foreground = "p:green";
             properties = {
-              branch_icon = "\ue725 ";
-              cherry_pick_icon = "\ue29b ";
-              commit_icon = "\uf417 ";
+              branch_icon = "\e725 ";
+              cherry_pick_icon = "\e29b ";
+              commit_icon = "\f417 ";
               fetch_status = false;
               fetch_upstream_icon = false;
-              merge_icon = "\ue727 ";
-              no_commits_icon = "\uf0c3 ";
-              rebase_icon = "\ue728 ";
-              revert_icon = "\uf0e2 ";
-              tag_icon = "\uf412 ";
+              merge_icon = "\e727 ";
+              no_commits_icon = "\f0c3 ";
+              rebase_icon = "\e728 ";
+              revert_icon = "\f0e2 ";
+              tag_icon = "\f412 ";
             };
             template = "{{ .HEAD }} ";
             style = "plain";
