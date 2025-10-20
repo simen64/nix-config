@@ -7,10 +7,17 @@
   };
 
   config = lib.mkIf config.git.enable {
-    services = {
-      ssh-tpm-agent = mkIf stdenv.isLinux {
-      enable = true;
-    };
+    inherit (lib.mkIf pkgs.stdenv.isLinux {
+      home.packages = with pkgs; [
+        ssh-tpm-agent
+      ];
+
+      services = {
+        ssh-tpm-agent = {
+          enable = true;
+        };
+      };
+    });
 
     programs.git = {
       enable = true;

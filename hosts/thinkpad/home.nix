@@ -75,12 +75,6 @@
     # EDITOR = "emacs";
   };
 
-  programs.git = {
-    enable = true;
-    userEmail = "joe@example.org";
-    userName = "joe";
-  };
-
 
   # gnome applications temp fix
   home.activation.linkDesktopFiles = lib.hm.dag.entryAfter ["installPackages"] ''
