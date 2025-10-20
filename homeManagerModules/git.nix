@@ -6,23 +6,17 @@
     };
   };
 
-  config = lib.mkIf config.git.enable {
-    inherit (lib.mkIf pkgs.stdenv.isLinux {
-      home.packages = with pkgs; [
-        ssh-tpm-agent
-      ];
-
-      services = {
-        ssh-tpm-agent = {
-          enable = true;
-        };
-      };
-    });
-
+config = lib.mkIf config.git.enable ({
     programs.git = {
       enable = true;
       userEmail = "simenmunch@gmail.com";
       userName = "simen64";
     };
-  };
+
+    home.packages = lib.mkIf pkgs.stdenv.isLinux [
+      pkgs.ssh-tpm-agent
+    ];
+
+  }
+);
 }
