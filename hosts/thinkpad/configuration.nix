@@ -93,6 +93,7 @@
 
   security.tpm2.enable = true;
   security.tpm2.applyUdevRules = true;
+  security.tpm2.tctiEnvironment.enable = true;
 
   home-manager = {
     # also pass inputs to home-manager modules
