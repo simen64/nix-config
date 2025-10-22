@@ -94,6 +94,7 @@
   users.groups.tss = {};
 
   security.tpm2.enable = true;
+  security.tpm2.applyUdevRules = true;
 
   home-manager = {
     # also pass inputs to home-manager modules
