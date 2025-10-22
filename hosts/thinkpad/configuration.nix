@@ -93,6 +93,8 @@
 
   users.groups.tss = {};
 
+  security.tpm2.enable = true;
+
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
