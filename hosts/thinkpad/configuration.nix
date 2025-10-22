@@ -91,6 +91,8 @@
     ];
   };
 
+  users.groups.tss = {};
+
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
