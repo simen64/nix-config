@@ -16,5 +16,6 @@
     };
 
     services.ssh-tpm-agent.enable = true;
+    services.ssh-agent.enable = true;
   });
 }

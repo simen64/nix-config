@@ -8,7 +8,6 @@
     ../../homeManagerModules/lazyvim.nix
     ../../homeManagerModules/dev-environment.nix
   ];
-  home.enableNixpkgsReleaseCheck = false;
 
   rebinds.enable = true;
   lazyvim.enable = true;
@@ -34,7 +33,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.nmap
-    pkgs.rpi-imager    
     pkgs.zoxide
     pkgs.dconf-editor
     gnomeExtensions.blur-my-shell
