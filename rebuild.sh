@@ -21,8 +21,15 @@ git diff -U0
 read -r -p "Commit message: " message
 
 git add -A
+
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log || (cat nixos-switch.log | grep --color error && exit 1)
+sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log
+rebuild_status=$?
+
+if [ $rebuild_status -ne 0 ]; then
+  cat nixos-switch.log | grep --color error
+  exit 1
+fi
 
 gen=$(nixos-rebuild list-generations | grep current)
 
