@@ -6,7 +6,7 @@
     };
   };
 
-config = lib.mkIf config.git.enable ({
+  config = lib.mkIf config.git.enable ({
     programs.git = {
       enable = true;
       settings = {
@@ -19,15 +19,6 @@ config = lib.mkIf config.git.enable ({
       pkgs.ssh-tpm-agent
     ];
 
-    services = {
-      ssh-tpm-agent = lib.mkIf pkgs.stdenv.isLinux {
-        enable = true;
-      };
-      ssh-agent = lib.mkIf pkgs.stdenv.isLinux {
-        enable = true;
-      };
-    };
-
-  }
-);
+    services.ssh-tpm-agent.enable = true;
+  });
 }
