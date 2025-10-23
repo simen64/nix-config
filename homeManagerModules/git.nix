@@ -15,9 +15,6 @@
       };
     };
 
-    home.packages = lib.mkIf pkgs.stdenv.isLinux [
-      pkgs.ssh-tpm-agent
-    ];
-
+    services.ssh-tpm-agent.enable = true;
   });
 }
