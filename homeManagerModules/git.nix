@@ -19,6 +19,5 @@
       pkgs.ssh-tpm-agent
     ];
 
-    services.ssh-tpm-agent.enable = true;
   });
 }
