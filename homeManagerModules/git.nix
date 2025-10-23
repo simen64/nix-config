@@ -6,7 +6,7 @@
     };
   };
 
-  config = lib.mkIf config.git.enable ({
+  config lib.mkIf config.git.enable ({
     programs.git = {
       enable = true;
       settings = {
