@@ -17,6 +17,7 @@ config = lib.mkIf config.git.enable ({
       pkgs.ssh-tpm-agent
     ];
 
+    services.ssh-tpm-agent.enable=true;
   }
 );
 }
