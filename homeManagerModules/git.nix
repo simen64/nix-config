@@ -9,8 +9,10 @@
 config = lib.mkIf config.git.enable ({
     programs.git = {
       enable = true;
-      userEmail = "simenmunch@gmail.com";
-      userName = "simen64";
+      settings = {
+        user.email = "simenmunch@gmail.com";
+        user.name = "simen64";
+      };
     };
 
     home.packages = lib.mkIf pkgs.stdenv.isLinux [

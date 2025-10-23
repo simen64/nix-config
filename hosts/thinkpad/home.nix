@@ -8,6 +8,7 @@
     ../../homeManagerModules/lazyvim.nix
     ../../homeManagerModules/dev-environment.nix
   ];
+  home.enableNixpkgsReleaseCheck = false;
 
   rebinds.enable = true;
   lazyvim.enable = true;
