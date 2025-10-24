@@ -4,11 +4,11 @@ export MACHINE="thinkpad"
 
 pushd /etc/nixos/
 
-#if git diff --quiet; then
-#  echo "No changes detected, exiting."
-#  popd
-#  exit 0
-#fi
+if git diff --quiet; then
+  echo "No changes detected, exiting."
+  popd
+  exit 0
+fi
 
 #alejandra . &>/dev/null ||
 #(
