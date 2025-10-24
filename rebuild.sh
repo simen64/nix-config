@@ -23,7 +23,7 @@ read -r -p "Commit message: " message
 git add -A
 
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log
+sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log
 rebuild_status=$?
 
 if [ $rebuild_status -ne 0 ]; then
@@ -34,6 +34,7 @@ fi
 gen=$(nixos-rebuild list-generations | grep current)
 
 git commit -am "$message | $gen"
+git push
 
 popd
 
