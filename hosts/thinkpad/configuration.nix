@@ -141,6 +141,8 @@
      python3
      unzip
      wl-clipboard
+     adwaita-fonts
+     adwaita-icon-theme
   ];
 
   services.flatpak = {
