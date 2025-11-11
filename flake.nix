@@ -11,9 +11,24 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
 
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
   };
 
-  outputs = { self, nixpkgs, ... } @inputs: {
+  outputs = {
+    self,
+    nix-darwin,
+    nixpkgs,
+    home-manager,
+    nix-homebrew,
+    ... 
+    } @inputs: {
+
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
@@ -22,5 +37,14 @@
       	inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
+
+    darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
+      specialArgs = { inherit inputs self; };
+      modules = [
+        ./darwin
+        ./hosts/macbook/configuration.nix
+      ];
+    };
+
   };
 }
