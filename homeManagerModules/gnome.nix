@@ -1,9 +1,18 @@
-{ pkgs, lib, ...}: {
-  imports = [
-    ./gnome-wallpaper.nix
-    ./gnome-standard-settings.nix
-  ];
+{ pkgs, lib, config, ... }: {
 
-  gnome-standard-settings.enable = lib.mkDefault true;
-  gnome-wallpaper.enable = lib.mkDefault true;
+  options = {
+    gnome = {
+      enable = lib.mkEnableOption "Enable GNOME configuration";
+    };
+  };
+
+  config = lib.mkIf config.gnome.enable {
+    imports = [
+      ./gnome-wallpaper.nix
+      ./gnome-standard-settings.nix
+    ];
+
+    gnome.gnome-standard-settings.enable = lib.mkDefault true;
+    gnome.gnome-wallpaper.enable = lib.mkDefault true;
+  };
 }
