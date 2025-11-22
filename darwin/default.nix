@@ -1,9 +1,9 @@
 { pkgs, inputs, self, ... }: {
 
   imports = [
+    inputs.home-manager.darwinModules.home-manager
     ./homebrew.nix
     ./settings.nix
-    inputs.home-manager.darwinModules.home-manager
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -39,6 +39,7 @@
       ];
 
       gnome.enable = false;
+      rebinds.enable = false;
 
       home.stateVersion = "25.05";
 
