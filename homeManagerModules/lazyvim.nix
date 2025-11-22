@@ -28,6 +28,7 @@ in {
       unzip
       ripgrep
       qwen-code
+      lazygit
       (lib.mkIf pkgs.stdenv.isLinux [
         wl-clipboard
       ])

@@ -46,9 +46,11 @@ echo "NixOS Rebuilding..."
 if [[ "$OSTYPE" == "darwin"* ]]; then
   sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} &>nixos-switch.log
   rebuild_status=$?
+  gen=$(sudo darwin-rebuild --list-generations | grep current)
 else
   sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log
   rebuild_status=$?
+  gen=$(nixos-rebuild list-generations | grep current)
 fi
 
 if [ $rebuild_status -ne 0 ]; then
@@ -56,9 +58,10 @@ if [ $rebuild_status -ne 0 ]; then
   exit 1
 fi
 
-gen=$(nixos-rebuild list-generations | grep current)
-
+echo "commiting"
 git commit -am "${message} | ${gen}"
+
+echo "pushing"
 git push
 
 popd
