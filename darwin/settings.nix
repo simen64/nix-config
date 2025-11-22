@@ -7,6 +7,8 @@
     stateVersion = 6;
     configurationRevision = self.rev or self.dirtyRev or null;
 
+    startup.chime = false;
+
     defaults = {
       loginwindow = {
         GuestEnabled = false;
