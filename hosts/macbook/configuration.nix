@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   networking.hostName = "simens-macbook";
   nixpkgs.hostPlatform = "aarch64-darwin";
 

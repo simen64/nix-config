@@ -1,5 +1,9 @@
-{ pkgs, inputs, self, ... }: {
-
+{
+  pkgs,
+  inputs,
+  self,
+  ...
+}: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
     ./homebrew.nix
@@ -42,7 +46,6 @@
       rebinds.enable = false;
 
       home.stateVersion = "25.05";
-
     };
     extraSpecialArgs = {
       inherit inputs self;
@@ -59,6 +62,6 @@
     systemPath = [
       "/opt/homebrew/bin"
     ];
-    pathsToLink = [ "/Applications" ];
+    pathsToLink = ["/Applications"];
   };
 }

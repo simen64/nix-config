@@ -1,6 +1,11 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
-    1password = {
+    "1password" = {
       enable = lib.mkEnableOption "Enable 1Password programs and GUI integration.";
       polkitOwner = lib.mkOption {
         type = lib.types.str;
@@ -10,12 +15,11 @@
     };
   };
 
-  config = lib.mkIf config.1password.enable {
+  config = lib.mkIf config .1 password.enable {
     programs._1password.enable = true;
     programs._1password-gui = {
       enable = true;
-      polkitPolicyOwners = [ config.1password.polkitOwner ];
+      polkitPolicyOwners = [config .1 password.polkitOwner];
     };
   };
 }
-

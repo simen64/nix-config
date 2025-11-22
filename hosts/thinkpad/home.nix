@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
-
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../../homeManagerModules/gnome.nix
     ../../nixosModules/terminal.nix
@@ -14,7 +17,7 @@
 
   home.username = "simen";
   home.homeDirectory = "/home/simen";
-  
+
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
@@ -73,7 +76,6 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
 
   # gnome applications temp fix
   home.activation.linkDesktopFiles = lib.hm.dag.entryAfter ["installPackages"] ''

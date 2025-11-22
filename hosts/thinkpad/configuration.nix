@@ -1,16 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-#      inputs.nix-flatpak.nixosModules.nix-flatpak
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+    #      inputs.nix-flatpak.nixosModules.nix-flatpak
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -23,7 +25,7 @@
   networking.hostName = "simens-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -84,10 +86,10 @@
   users.users.simen = {
     isNormalUser = true;
     description = "Simen";
-    extraGroups = [ "networkmanager" "wheel" "tss" ];
-    shell = pkgs.zsh; 
+    extraGroups = ["networkmanager" "wheel" "tss"];
+    shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -97,7 +99,7 @@
 
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "simen" = import ./home.nix;
     };
@@ -122,27 +124,27 @@
     enable = true;
     # Certain features, including CLI integration and system authentication support,
     # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = [ "simen" ];
+    polkitPolicyOwners = ["simen"];
   };
-  
+
   services.fwupd.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim
-     neovim
-     lazygit
-     curl
-     ripgrep
-     fd
-     bind
-     tailscale
-     python3
-     unzip
-     wl-clipboard
-     adwaita-fonts
-     adwaita-icon-theme
+    vim
+    neovim
+    lazygit
+    curl
+    ripgrep
+    fd
+    bind
+    tailscale
+    python3
+    unzip
+    wl-clipboard
+    adwaita-fonts
+    adwaita-icon-theme
   ];
 
   services.flatpak = {
@@ -155,7 +157,7 @@
 
   # Fingerprint reader
   systemd.services.fprintd = {
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
     serviceConfig.Type = "simple";
   };
 
@@ -199,5 +201,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

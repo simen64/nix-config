@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     fonts = {
       enable = lib.mkEnableOption "Enable fonts module";

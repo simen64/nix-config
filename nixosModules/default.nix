@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;
@@ -9,4 +14,3 @@
     randomizedDelaySec = "45min";
   };
 }
-

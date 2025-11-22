@@ -1,6 +1,6 @@
 {
   description = "Nixos config flake";
-  
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -17,7 +17,6 @@
     };
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-
   };
 
   outputs = {
@@ -26,25 +25,23 @@
     nixpkgs,
     home-manager,
     nix-homebrew,
-    ... 
-    } @inputs: {
-
+    ...
+  } @ inputs: {
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/thinkpad/configuration.nix
         inputs.home-manager.nixosModules.default
-      	inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.nix-flatpak.nixosModules.nix-flatpak
       ];
     };
 
     darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs self; };
+      specialArgs = {inherit inputs self;};
       modules = [
         ./darwin
         ./hosts/macbook/configuration.nix
       ];
     };
-
   };
 }

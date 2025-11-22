@@ -1,12 +1,16 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     git = {
       enable = lib.mkEnableOption "Enable git module";
     };
   };
 
-config = lib.mkIf config.git.enable ({
+  config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
       settings = {
@@ -27,7 +31,5 @@ config = lib.mkIf config.git.enable ({
         enable = true;
       };
     };
-
-  }
-);
+  };
 }

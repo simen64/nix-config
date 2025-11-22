@@ -1,17 +1,18 @@
-{ pkgs, lib, config, osConfig, ... }:
-
-  let
-    isNixOS = lib.hasAttr "nixos" osConfig.system;
-    flakePath =
-      if isNixOS then
-        "/etc/nixos"
-      else if pkgs.stdenv.isDarwin then
-       "/Users/simen/nix"
-      else
-        "/home/simen/.config/nix-config";
-  in
-
 {
+  pkgs,
+  lib,
+  config,
+  osConfig,
+  ...
+}: let
+  isNixOS = lib.hasAttr "nixos" osConfig.system;
+  flakePath =
+    if isNixOS
+    then "/etc/nixos"
+    else if pkgs.stdenv.isDarwin
+    then "/Users/simen/nix"
+    else "/home/simen/.config/nix-config";
+in {
   options = {
     terminal = {
       enable = lib.mkEnableOption "Enable terminal module";
@@ -37,6 +38,5 @@
     home.file = {
       ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/zshrc";
     };
-
   };
 }

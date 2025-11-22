@@ -1,8 +1,11 @@
 #!/bin/bash
 
-export MACHINE="thinkpad"
-
-pushd /etc/nixos/
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export MACHINE="macbook"
+  pushd ~/nix/
+else
+  pushd /etc/nixos
+fi
 
 if git diff --quiet; then
   echo "No changes detected, exiting."

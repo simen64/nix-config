@@ -1,12 +1,16 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     module = {
       enable = lib.mkEnableOption "Enable module";
     };
   };
 
-  config = lib.mkIf config.module.enable {
-
-  };
+  config =
+    lib.mkIf config.module.enable {
+    };
 }
