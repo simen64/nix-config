@@ -1,0 +1,4 @@
+Host github.com:simen64/nix-config.git
+  Hostname github.com
+  User git
+  IdentityFile

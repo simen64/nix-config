@@ -38,7 +38,7 @@
         ../homeManagerModules
       ];
 
-      #gnome.enable = false;
+      gnome.enable = false;
 
       home.stateVersion = "25.05";
 

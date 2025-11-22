@@ -14,14 +14,7 @@ config = lib.mkIf config.git.enable ({
         user.name = "simen64";
       };
 
-      signing.key = 
-        if pkgs.stdenv.hostPlatform.isDarwin then
-          "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
-        else if pkgs.stdenv.hostPlatform.isLinux then
-          "your-linux-gpg-key-id"
-        else
-          "default-gpg-key-id";
-
+      signing.key = "/Users/simen/.ssh/id_ed25519_sk_rk-USB-C.pub";
       signing.signByDefault = true;
       signing.format = "ssh";
     };

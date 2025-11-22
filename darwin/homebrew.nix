@@ -23,6 +23,7 @@
       ## dev
       "ghostty"
       "secretive"
+      "pgadmin4"
 
       ## messaging
       "signal"
@@ -33,9 +34,12 @@
       "spotify"
       "firefox"
       "localsend"
+      "google-chrome"
     ];
     brews = [
       "stow"
+      "podman"
+      "podman-compose"
     ];
     taps = [
     ];
