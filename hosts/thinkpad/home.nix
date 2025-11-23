@@ -5,11 +5,8 @@
   ...
 }: {
   imports = [
-    ../../homeManagerModules/gnome.nix
     ../../nixosModules/terminal.nix
-    ../../homeManagerModules/rebinds.nix
-    ../../homeManagerModules/lazyvim.nix
-    ../../homeManagerModules/dev-environment.nix
+    ../../homeManagerModules
   ];
 
   rebinds.enable = true;

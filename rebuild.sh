@@ -58,7 +58,7 @@ if [ $rebuild_status -ne 0 ]; then
   exit 1
 fi
 
-echo "commiting"
+echo "commiting: ${message} | ${gen}"
 git commit -am "${message} | ${gen}"
 
 echo "pushing"

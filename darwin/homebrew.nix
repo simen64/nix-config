@@ -23,6 +23,7 @@
       "ghostty"
       "secretive"
       "pgadmin4"
+      "postman"
 
       ## messaging
       "signal"
