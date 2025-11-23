@@ -24,6 +24,7 @@
       "secretive"
       "pgadmin4"
       "postman"
+      "docker-desktop"
 
       ## messaging
       "signal"
