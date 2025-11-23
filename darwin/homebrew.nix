@@ -40,6 +40,7 @@
       "stow"
       "podman"
       "podman-compose"
+      "docker"
     ];
     taps = [
     ];
