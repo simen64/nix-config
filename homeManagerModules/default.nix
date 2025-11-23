@@ -12,6 +12,7 @@
     ./lazyvim.nix
     ./rebinds.nix
     ./ssh.nix
+    ./dev.nix
   ];
 
   # Enable all modules by default
@@ -23,6 +24,7 @@
   lazyvim.enable = lib.mkDefault true;
   rebinds.enable = lib.mkDefault true;
   ssh.enable = lib.mkDefault true;
+  dev.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
     alejandra
