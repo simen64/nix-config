@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ../../nixosModules/terminal.nix
+    #../../nixosModules/terminal.nix
     ../../homeManagerModules
   ];
 

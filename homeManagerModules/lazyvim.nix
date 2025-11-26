@@ -29,10 +29,7 @@ in {
       ripgrep
       qwen-code
       lazygit
-      (lib.mkIf pkgs.stdenv.isLinux [
-        wl-clipboard
-      ])
-    ];
+    ] ++ lib.optional pkgs.stdenv.isLinux wl-clipboard;
 
     home.file = {
       ".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/nvim";

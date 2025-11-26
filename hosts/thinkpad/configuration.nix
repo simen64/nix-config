@@ -48,6 +48,9 @@
   services.desktopManager.gnome.enable = true;
   services.gnome.games.enable = false;
 
+  # Enable niri
+  programs.niri.enable = true;
+
   # Enable dconf
   programs.dconf.enable = true;
 
@@ -105,6 +108,8 @@
     };
   };
 
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -114,6 +119,7 @@
 
   # zsh
   programs.zsh.enable = true;
+
 
   # Install firefox.
   programs.firefox.enable = true;

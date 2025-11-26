@@ -4,6 +4,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export MACHINE="macbook"
   pushd ~/nix/
 else
+  export MACHINE="thinkpad"
   pushd /etc/nixos
 fi
 
@@ -50,18 +51,13 @@ git add -A
 echo "NixOS Rebuilding..."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} &>nixos-switch.log
+  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE}
   rebuild_status=$?
   gen=$(sudo darwin-rebuild --list-generations | grep current)
 else
-  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} &>nixos-switch.log
+  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE}
   rebuild_status=$?
   gen=$(nixos-rebuild list-generations | grep current)
-fi
-
-if [ $rebuild_status -ne 0 ]; then
-  cat nixos-switch.log | grep --color error
-  exit 1
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
