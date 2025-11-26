@@ -64,6 +64,12 @@ if [ $rebuild_status -ne 0 ]; then
   exit 1
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  osascript -e 'display notification "Nix rebuild finnished successfully" with title "Nix rebuild"'
+else
+  notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+fi
+
 echo "commiting: ${message} | ${gen}"
 git commit -am "${message} | ${gen}"
 
@@ -71,11 +77,5 @@ echo "pushing"
 git push
 
 popd
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  osascript -e 'display notification "Nix rebuild finnished successfully" with title "Nix rebuild"'
-else
-  notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
-fi
 
 echo "done"

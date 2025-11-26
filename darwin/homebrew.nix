@@ -30,6 +30,7 @@
       "signal"
 
       ## other
+      "nextcloud"
       "1password"
       "obsidian"
       "spotify"
