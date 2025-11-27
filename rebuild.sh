@@ -1,5 +1,21 @@
 #!/bin/bash
 
+SKIP_DIFF_CHECK=false
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -f|--force)
+      SKIP_DIFF_CHECK=true
+      shift
+      ;;
+    *)
+      # Assume the first non-flag argument is the commit message
+      break
+      ;;
+  esac
+done
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export MACHINE="macbook"
   pushd ~/nix/
@@ -8,7 +24,7 @@ else
   pushd /etc/nixos
 fi
 
-if git diff --quiet; then
+if [[ "$SKIP_DIFF_CHECK" == false ]] && git diff --quiet; then
   echo "No changes detected, exiting."
   popd
   exit 0
@@ -18,7 +34,7 @@ alejandra .
 
 git diff -U0
 
-# Check if a commit message was provided as an argument
+# Check if a commit message was provided as an argument (after flags have been processed)
 if [ -n "$1" ]; then
   message="$1"
   echo "Using provided commit message: $message"
