@@ -28,7 +28,7 @@ in {
         font-size = 14;
         window-padding-x = 10;
         window-padding-y = 10;
-        theme = "Everforest Dark - Hard";
+        theme = "everforest-dark";
         keybind = "ctrl+t=new_tab";
       };
       themes = {
