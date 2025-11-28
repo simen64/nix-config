@@ -25,6 +25,7 @@
       "pgadmin4"
       "postman"
       "docker-desktop"
+      "podman-desktop"
 
       ## messaging
       "signal"
