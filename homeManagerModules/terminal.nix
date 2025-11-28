@@ -189,6 +189,12 @@ in {
                 template = "  {{ if .Venv }}{{ .Venv }}{{ end }} ";
               }
               {
+                type = "nix-shell";
+                style = "powerline";
+                foreground = "#DBBC7F";
+                template = "(nix-{{ .Type }})";
+              }
+              {
                 style = "plain";
                 foreground = "p:closer";
                 template = "";
