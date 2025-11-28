@@ -64,15 +64,148 @@ in {
       };
     };
 
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+
+      history.size = 1000;
+      history.save = 1000;
+
+      setOptions = ["EXTENDED_GLOB"];
+
+      shellAliases = {
+        ls = "ls --color";
+        cd = "z";
+        nano = "echo 'use vim brah 🙏🥀'";
+      };
+
+      initContent = ''
+        eval "$(ssh-agent -s)" &>/dev/null
+
+        # Keybinds
+        bindkey '^[[1;5C' forward-word
+        bindkey '^[[1;5D' backward-word
+        bindkey '^H' backward-kill-word
+        bindkey '^f' autosuggest-accept
+        WORDCHARS='*?._-[]~=&;!#$%^(){}<>'
+      '';
+    };
+
+    # zsh plugins
     home.packages = with pkgs; [
-      direnv
-      oh-my-posh
-      zoxide
-      fzf
+      pkgs.zsh-completions
+      pkgs.zsh-autosuggestions
+      pkgs.zsh-syntax-highlighting
     ];
 
-    home.file = {
-      ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/zshrc";
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
+
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultOptions = [
+        "--style=full"
+        "--layout reverse"
+        "--height=40%"
+        "--color 'pointer:green:bold,bg+:-1:,fg+:green:bold,info:blue:bold,marker:yellow:bold,hl:gray:bold,hl+:yellow:bold'"
+        "--input-label ' Search '"
+        "--color 'input-border:blue,input-label:blue:bold'"
+        "--list-label ' Results '"
+        "--color 'list-border:green,list-label:green:bold'"
+        "--preview-label ' Preview '"
+        "--color 'preview-border:magenta,preview-label:magenta:bold'"
+      ];
+    };
+
+    programs.oh-my-posh = {
+      enable = true;
+      settings = {
+        palette = {
+          os = "#9da9a0";
+          closer = "p:os";
+          orange = "#e69875";
+          green = "#a7c080";
+          blue = "#7fbbb3";
+        };
+
+        blocks = [
+          {
+            alignment = "left";
+            segments = [
+              {
+                foreground = "p:os";
+                style = "plain";
+                template = "{{.Icon}} ";
+                type = "os";
+              }
+              {
+                foreground = "p:blue";
+                style = "plain";
+                template = "{{ .UserName }} ";
+                type = "session";
+              }
+              {
+                foreground = "p:orange";
+                properties = {
+                  folder_icon = "..\e5fe..";
+                  home_icon = "~";
+                  style = "agnoster_short";
+                };
+                style = "plain";
+                template = "{{ .Path }} ";
+                type = "path";
+              }
+              {
+                foreground = "p:green";
+                properties = {
+                  branch_icon = " ";
+                  cherry_pick_icon = " ";
+                  commit_icon = " ";
+                  fetch_status = false;
+                  fetch_upstream_icon = false;
+                  merge_icon = " ";
+                  no_commits_icon = " ";
+                  rebase_icon = " ";
+                  revert_icon = " ";
+                  tag_icon = " ";
+                };
+                template = "{{ .HEAD }} ";
+                style = "plain";
+                type = "git";
+              }
+              {
+                type = "python";
+                style = "plain";
+                foreground = "#DBBC7F";
+                template = "  {{ if .Venv }}{{ .Venv }}{{ end }} ";
+              }
+              {
+                style = "plain";
+                foreground = "p:closer";
+                template = "\uf105";
+                type = "text";
+              }
+            ];
+            type = "prompt";
+          }
+        ];
+
+        final_space = true;
+        version = 3;
+      };
+    };
+
+    #home.file = {
+    #  ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/zshrc";
+    #};
   };
 }

@@ -27,6 +27,7 @@ eval "$(ssh-agent -s)" &>/dev/null
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+
 export FZF_CTRL_T_COMMAND=""
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS="--style=full \
@@ -41,7 +42,6 @@ export FZF_DEFAULT_OPTS="--style=full \
 --color 'preview-border:magenta,preview-label:magenta:bold'"
 
 export FZF_COMPLETION_TRIGGER='*'
-
 eval "$(direnv hook zsh)"
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/themes/everforest.omp.json)"
