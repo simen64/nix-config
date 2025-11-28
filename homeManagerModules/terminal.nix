@@ -191,7 +191,7 @@ in {
               {
                 style = "plain";
                 foreground = "p:closer";
-                template = "\uf105";
+                template = "\u{f105}";
                 type = "text";
               }
             ];
