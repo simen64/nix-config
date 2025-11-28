@@ -20,8 +20,12 @@ in {
   };
 
   config = lib.mkIf config.terminal.enable {
-    programs.ghostty = lib.mkIf pkgs.stdenv.isLinux {
+    programs.ghostty = {
       enable = true;
+      package =
+        if pkgs.stdenv.isDarwin
+        then null
+        else pkgs.ghostty;
       enableZshIntegration = true;
       settings = {
         font-family = "AdwaitaMono Nerd Font";
