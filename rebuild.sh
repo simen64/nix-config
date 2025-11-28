@@ -5,14 +5,14 @@ SKIP_DIFF_CHECK=false
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
   case $1 in
-    -f|--force)
-      SKIP_DIFF_CHECK=true
-      shift
-      ;;
-    *)
-      # Assume the first non-flag argument is the commit message
-      break
-      ;;
+  -f | --force)
+    SKIP_DIFF_CHECK=true
+    shift
+    ;;
+  *)
+    # Assume the first non-flag argument is the commit message
+    break
+    ;;
   esac
 done
 
@@ -67,11 +67,11 @@ git add -A
 echo "NixOS Rebuilding..."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE}
+  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} || exit 1
   rebuild_status=$?
   gen=$(sudo darwin-rebuild --list-generations | grep current)
 else
-  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE}
+  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} || exit 1
   rebuild_status=$?
   gen=$(nixos-rebuild list-generations | grep current)
 fi
