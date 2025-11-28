@@ -156,7 +156,7 @@ in {
               {
                 foreground = "p:orange";
                 properties = {
-                  folder_icon = "....";
+                  folder_icon = "....";
                   home_icon = "~";
                   style = "agnoster_short";
                 };
