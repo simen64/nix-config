@@ -13,6 +13,7 @@
   config = lib.mkIf config.dev.enable {
     home.packages = with pkgs; [
       go
+      devenv
     ];
   };
 }
