@@ -1,16 +1,16 @@
 {
   pkgs,
   lib,
-  config,
+  inputs,
   ...
 }: {
-  system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-      "--print-build-logs"
-    ];
-    dates = "12:00";
-    randomizedDelaySec = "45min";
-  };
+  imports = [
+    ./user.nix
+    ./autoUpgrade.nix
+    ./onePassword.nix
+  ];
+
+  user.enable = lib.mkDefault true;
+  autoUpgrade.enable = lib.mkDefault true;
+  onePassword.enable = lib.mkDefault true;
 }

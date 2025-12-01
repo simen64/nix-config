@@ -3,6 +3,7 @@
   lib,
   ...
 }: {
+  home.stateVersion = "25.11";
   imports = [
     ./terminal.nix
     ./podman.nix

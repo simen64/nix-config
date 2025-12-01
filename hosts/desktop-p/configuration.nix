@@ -1,18 +1,12 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ config, pkgs, inputs, ... }:
+
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
-    ../../nixosModules
-  ];
+  imports =
+    [ # Include the results of the hardware scan.
+      inputs.home-manager.nixosModules.default
+      ./hardware-configuration.nix
+      ../../nixosModules
+    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,11 +15,8 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-ac615319-8d74-41ba-bdae-8f5668283364".device = "/dev/disk/by-uuid/ac615319-8d74-41ba-bdae-8f5668283364";
-  networking.hostName = "simens-laptop"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -41,30 +32,23 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  services.gnome.games.enable = false;
-
-  # Enable niri
-  programs.niri.enable = true;
-
-  # Enable dconf
-  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "no";
-    variant = "winkeys";
+    variant = "mac";
   };
 
   # Configure console keymap
   console.keyMap = "no";
 
   # Enable CUPS to print documents.
-  services.printing.enable = false;
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -85,98 +69,41 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.simen = {
-    isNormalUser = true;
-    description = "Simen";
-    extraGroups = ["networkmanager" "wheel" "tss"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
-
   security.tpm2.enable = true;
   security.tpm2.applyUdevRules = true;
   security.tpm2.tctiEnvironment.enable = true;
-
+  
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "simen" = import ./home.nix;
+      "simen" = {
+      	imports = [ ../../homeManagerModules ];
+      };
     };
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
+  
+  programs.zsh.enable = true;
+  
   programs.nix-ld.enable = true;
 
-  programs.localsend.enable = true;
-
-  # zsh
-  programs.zsh.enable = true;
+  # nvidia drivers
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
 
   # Install firefox.
   programs.firefox.enable = true;
 
-  #1password
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = ["simen"];
-  };
-
-  services.fwupd.enable = true;
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    lazygit
-    curl
-    ripgrep
-    fd
-    bind
-    tailscale
-    python3
-    unzip
-    wl-clipboard
-    adwaita-fonts
-    adwaita-icon-theme
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
-
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.spotify.Client"
-      "org.onlyoffice.desktopeditors"
-    ];
-  };
-
-  # Fingerprint reader
-  systemd.services.fprintd = {
-    wantedBy = ["multi-user.target"];
-    serviceConfig.Type = "simple";
-  };
-
-  services = {
-    fprintd.enable = true;
-    envfs.enable = true;
-    tailscale.enable = true;
-  };
-
-  security.pam.services = {
-    login.unixAuth = true;
-    # fprint is not stable, locked sometimes after suspend
-    login.fprintAuth = false;
-    sddm.fprintAuth = false;
-    xscreensaver.fprintAuth = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -204,4 +131,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
+
 }

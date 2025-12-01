@@ -36,6 +36,15 @@
       ];
     };
 
+    nixosConfigurations.desktop-p = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/desktop-p/configuration.nix
+        inputs.home-manager.nixosModules.default
+        inputs.nix-flatpak.nixosModules.nix-flatpak
+      ];
+    };
+
     darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
       specialArgs = {inherit inputs self;};
       modules = [

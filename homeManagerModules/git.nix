@@ -18,7 +18,7 @@
         user.name = "simen64";
       };
 
-      signing.key = "/Users/simen/.ssh/id_ed25519_sk_rk-USB-C.pub";
+      signing.key = "/Users/simen/.ssh/id_ed25519_sk_rk.pub";
       signing.signByDefault = true;
       signing.format = "ssh";
     };
