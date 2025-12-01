@@ -8,6 +8,7 @@
     ./user.nix
     ./autoUpgrade.nix
     ./onePassword.nix
+    ../modules/nix.nix
   ];
 
   user.enable = lib.mkDefault true;

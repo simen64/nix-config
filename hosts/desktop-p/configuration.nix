@@ -1,12 +1,15 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      inputs.home-manager.nixosModules.default
-      ./hardware-configuration.nix
-      ../../nixosModules
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    ../../nixosModules
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -72,24 +75,24 @@
   security.tpm2.enable = true;
   security.tpm2.applyUdevRules = true;
   security.tpm2.tctiEnvironment.enable = true;
-  
+
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
     users = {
       "simen" = {
-      	imports = [ ../../homeManagerModules ];
+        imports = [../../homeManagerModules];
       };
     };
   };
-  
+
   programs.zsh.enable = true;
-  
+
   programs.nix-ld.enable = true;
 
   # nvidia drivers
   hardware.graphics.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.open = true;
 
   # Install firefox.
@@ -101,8 +104,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -131,5 +134,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }

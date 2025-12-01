@@ -8,6 +8,7 @@
     inputs.home-manager.darwinModules.home-manager
     ./homebrew.nix
     ./settings.nix
+    ../modules/nix.nix
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
@@ -44,8 +45,6 @@
 
       gnome.enable = false;
       rebinds.enable = false;
-
-      home.stateVersion = "25.05";
     };
     extraSpecialArgs = {
       inherit inputs self;
