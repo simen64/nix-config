@@ -67,13 +67,17 @@ git add -A
 echo "NixOS Rebuilding..."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} || exit 1
+  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} ||
+    git restore --staged . &&
+    exit 1
   rebuild_status=$?
-  gen=$(sudo darwin-rebuild --list-generations | grep current)
+  gen=$(sudo darwin-rebuild --list-generations | grep current | sed 's/   (current)$//')
 else
-  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} || exit 1
+  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} ||
+    git restore --staged . &&
+    exit 1
   rebuild_status=$?
-  gen=$(nixos-rebuild list-generations | grep current)
+  gen=$(nixos-rebuild list-generations | grep current | sed 's/   (current)$//')
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -82,8 +86,8 @@ else
   notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
 fi
 
-echo "commiting: ${message} | ${gen}"
-git commit -am "${message} | ${gen}"
+echo "commiting: ${message} | ${MACHINE}: ${gen}"
+git commit -am "${message} | ${MACHINE}: ${gen}"
 
 echo "pushing"
 git push
