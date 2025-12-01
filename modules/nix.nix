@@ -5,8 +5,8 @@
   pkgs,
   ...
 }: {
-  config = {
-    nix.settings = {
+  nix = {
+    settings = {
       substituters = [
         "https://devenv.cachix.org"
       ];
