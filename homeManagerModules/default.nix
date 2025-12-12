@@ -14,6 +14,7 @@
     ./rebinds.nix
     ./ssh.nix
     ./dev.nix
+    ./dank-niri.nix
   ];
 
   # Enable all modules by default
@@ -26,6 +27,7 @@
   rebinds.enable = lib.mkDefault true;
   ssh.enable = lib.mkDefault true;
   dev.enable = lib.mkDefault true;
+  dank-niri.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
     alejandra

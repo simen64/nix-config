@@ -9,6 +9,7 @@
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
     ../../nixosModules
+    #inputs.niri.nixosModules.niri
   ];
 
   # Bootloader.
@@ -18,7 +19,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "desktop-p"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -40,6 +41,21 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
+
+  # Enable niri
+  programs.niri.enable = true;
+
+  #programs.dankMaterialShell.greeter = {
+  #  enable = true;
+  #  compositor.name = "niri"; # Or "hyprland" or "sway"
+
+  #  configHome = "/home/simen";
+
+  #  logs = {
+  #    save = true;
+  #    path = "/tmp/dms-greeter.log";
+  #  };
+  #};
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -94,6 +110,7 @@
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.open = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   # Install firefox.
   programs.firefox.enable = true;

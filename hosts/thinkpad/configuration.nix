@@ -83,17 +83,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.simen = {
-    isNormalUser = true;
-    description = "Simen";
-    extraGroups = ["networkmanager" "wheel" "tss"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-  };
-
   security.tpm2.enable = true;
   security.tpm2.applyUdevRules = true;
   security.tpm2.tctiEnvironment.enable = true;

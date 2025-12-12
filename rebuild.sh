@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SKIP_DIFF_CHECK=false
 
@@ -16,13 +16,23 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+HOSTNAME=$(hostname)
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export MACHINE="macbook"
   pushd ~/nix/
+
+elif [[ "$HOSTNAME" == "simens-laptop" ]]; then
+  esport MACHINE="thinkpad"
+  pushd /etc/nixos/
+elif [[ "$HOSTNAME" == "desktop-p" ]]; then
+  export MACHINE="desktop-p"
+  pushd /etc/nixos/
 else
-  export MACHINE="thinkpad"
-  pushd /etc/nixos
+  read -r -p "enter MACHINE: " MACHINE
 fi
+
+echo $MACHINE
 
 if [[ "$SKIP_DIFF_CHECK" == false ]] && git diff --quiet; then
   echo "No changes detected, exiting."
