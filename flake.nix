@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -36,6 +41,7 @@
     nixpkgs,
     home-manager,
     nix-homebrew,
+    dankMaterialShell,
     ...
   } @ inputs: {
     nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
@@ -44,6 +50,8 @@
         ./hosts/thinkpad/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.niri.nixosModules.niri
+        inputs.dankMaterialShell.nixosModules.dankMaterialShell
       ];
     };
 

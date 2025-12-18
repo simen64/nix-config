@@ -90,8 +90,13 @@
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = {inherit inputs;};
-    users = {
-      "simen" = import ./home.nix;
+    users.simen = {
+      imports = [
+        ../../homeManagerModules
+      ];
+
+      dank-niri.enable = true;
+
     };
   };
 
@@ -108,14 +113,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  #1password
-  programs._1password.enable = true;
-  programs._1password-gui = {
-    enable = true;
-    # Certain features, including CLI integration and system authentication support,
-    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
-    polkitPolicyOwners = ["simen"];
-  };
 
   services.fwupd.enable = true;
 
