@@ -27,7 +27,7 @@
   rebinds.enable = lib.mkDefault true;
   ssh.enable = lib.mkDefault true;
   dev.enable = lib.mkDefault true;
-  dank-niri.enable = lib.mkDefault true;
+  dank-niri.enable = lib.mkDefault false;
 
   home.packages = with pkgs; [
     alejandra

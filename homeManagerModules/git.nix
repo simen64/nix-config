@@ -13,6 +13,7 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
+      lfs.enable = true;
       settings = {
         user.email = "simenmunch@gmail.com";
         user.name = "simen64";

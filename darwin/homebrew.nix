@@ -29,6 +29,7 @@
 
       ## messaging
       "signal"
+      "element"
 
       ## other
       "nextcloud"
@@ -38,6 +39,7 @@
       "firefox"
       "localsend"
       "google-chrome"
+      "ultimaker-cura"
     ];
     brews = [
       "stow"

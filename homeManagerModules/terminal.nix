@@ -78,6 +78,7 @@ in {
         ls = "ls --color";
         cd = "z";
         nano = "echo 'use vim brah 🙏🥀'";
+        update-gitverify = "cp ~/Documents/root-of-trust/gitverify.json ~/.config/gitverify/github.com/simen64/gitverify.json";
       };
 
       initContent = ''
@@ -107,6 +108,7 @@ in {
     programs.direnv = {
       enable = true;
       enableZshIntegration = true;
+      silent = true;
     };
 
     programs.fzf = {
@@ -187,12 +189,6 @@ in {
                 style = "plain";
                 foreground = "#DBBC7F";
                 template = "  {{ if .Venv }}{{ .Venv }}{{ end }} ";
-              }
-              {
-                type = "nix-shell";
-                style = "powerline";
-                foreground = "#DBBC7F";
-                template = "(nix-{{ .Type }})";
               }
               {
                 style = "plain";
