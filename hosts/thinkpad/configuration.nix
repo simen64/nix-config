@@ -96,7 +96,6 @@
       ];
 
       dank-niri.enable = true;
-
     };
   };
 
