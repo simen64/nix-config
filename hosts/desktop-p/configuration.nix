@@ -60,7 +60,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "no";
-    variant = "mac";
   };
 
   # Configure console keymap
@@ -98,6 +97,8 @@
     users = {
       "simen" = {
         imports = [../../homeManagerModules];
+
+        dank-niri.enable = true;
       };
     };
   };

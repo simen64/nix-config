@@ -77,15 +77,11 @@ git add -A
 echo "NixOS Rebuilding..."
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} ||
-    git restore --staged . &&
-    exit 1
+  sudo echo "Authentication complete" && sudo darwin-rebuild switch --flake /Users/simen/nix#${MACHINE} || (git restore --staged . && exit 1)
   rebuild_status=$?
   gen=$(sudo darwin-rebuild --list-generations | grep current | sed 's/   (current)$//')
 else
-  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} ||
-    git restore --staged . &&
-    exit 1
+  sudo echo "Authentication complete" && sudo nixos-rebuild switch --flake /etc/nixos/#${MACHINE} || (git restore --staged . && exit 1)
   rebuild_status=$?
   gen=$(nixos-rebuild list-generations | grep current | sed 's/   (current)$//')
 fi

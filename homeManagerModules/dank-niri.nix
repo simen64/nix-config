@@ -28,10 +28,17 @@ in {
   config = lib.mkIf config.dank-niri.enable {
     programs.dankMaterialShell = {
       enable = true;
-      #niri = {
-      #  enableKeybinds = true; # Automatic keybinding configuration
-      #  enableSpawn = true; # Auto-start DMS with niri
-      #};
+
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+
+      enableSystemMonitoring = true;
+      enableVPN = true;
+      enableDynamicTheming = true;
+      enableAudioWavelength = true;
+      enableCalendarEvents = true;
     };
 
     home.file = {
