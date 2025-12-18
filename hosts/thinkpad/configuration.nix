@@ -113,7 +113,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-
   services.fwupd.enable = true;
 
   # List packages installed in system profile. To search, run:
