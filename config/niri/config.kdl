@@ -19,8 +19,8 @@ output "Samsung Electric Company LS32A70 H4ZT400579" {
   focus-at-startup
 }
 
-/-output "eDP-1" {
-    scale 2
+output "eDP-1" {
+    scale 1.15
     transform "normal"
     position x=1280 y=0
 }
@@ -401,4 +401,4 @@ binds {
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
-include "dms/binds.kdl"
+include "dms/keybinds.kdl"
