@@ -43,6 +43,7 @@ in {
 
     home.file = {
       ".config/niri/".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/niri";
+      ".config/DankMaterialShell".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell";
     };
   };
 }
