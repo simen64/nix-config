@@ -21,7 +21,6 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-ac615319-8d74-41ba-bdae-8f5668283364".device = "/dev/disk/by-uuid/ac615319-8d74-41ba-bdae-8f5668283364";
   networking.hostName = "simens-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
