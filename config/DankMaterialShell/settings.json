@@ -131,7 +131,7 @@
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
-  "launcherLogoSizeOffset": 0,
+  "launcherLogoSizeOffset": 3,
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Adwaita Mono",
   "fontWeight": 400,
@@ -415,10 +415,6 @@
       "HDMI-A-2": {
         "x": 21.40234375,
         "y": 66.43359375
-      },
-      "eDP-1": {
-        "x": 11.6640625,
-        "y": 56.2734375
       }
     },
     "systemMonitor": {
