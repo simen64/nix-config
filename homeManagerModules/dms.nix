@@ -15,18 +15,18 @@
     else "/home/simen/.config/nix-config";
 in {
   imports = [
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    inputs.dankMaterialShell.homeModules.dank-material-shell
     #inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
   ];
 
   options = {
-    dank-niri = {
+    dms = {
       enable = lib.mkEnableOption "Enable dank-niri module";
     };
   };
 
-  config = lib.mkIf config.dank-niri.enable {
-    programs.dankMaterialShell = {
+  config = lib.mkIf config.dms.enable {
+    programs.dank-material-shell = {
       enable = true;
 
       systemd = {
@@ -39,11 +39,17 @@ in {
       enableDynamicTheming = true;
       enableAudioWavelength = true;
       enableCalendarEvents = true;
+
+      plugins = {
+        dankBatteryAlerts.src = inputs.dms-plugins + "/DankBatteryAlerts";
+        dms-display-mirror.src = inputs.dms-display-mirror;
+      };
     };
 
     home.file = {
       ".config/niri/".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/niri";
-      ".config/DankMaterialShell".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell";
+      ".config/DankMaterialShell/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell/settings.json";
+      ".config/DankMaterialShell/plugin_settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell/plugin_settings.json";
     };
   };
 }

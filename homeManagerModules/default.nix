@@ -14,7 +14,7 @@
     ./rebinds.nix
     ./ssh.nix
     ./dev.nix
-    ./dank-niri.nix
+    ./dms.nix
   ];
 
   # Enable all modules by default
@@ -22,12 +22,12 @@
   podman.enable = lib.mkDefault false;
   fonts.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
-  gnome.enable = lib.mkDefault true;
+  #gnome.enable = lib.mkDefault true;
   lazyvim.enable = lib.mkDefault true;
   rebinds.enable = lib.mkDefault true;
   ssh.enable = lib.mkDefault true;
   dev.enable = lib.mkDefault true;
-  dank-niri.enable = lib.mkDefault false;
+  dms.enable = lib.mkDefault true;
 
   home.packages = with pkgs; [
     alejandra
