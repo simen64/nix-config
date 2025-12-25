@@ -2,11 +2,14 @@ input {
     keyboard {
         xkb {
           layout "no"
+          options "caps:escape"
         }
         numlock
     }
     touchpad {
         tap
+        natural-scroll
+        scroll-factor 0.7
     }
     mouse {
     }
@@ -146,6 +149,10 @@ layer-rule {
     opacity 0.95
 }
 
+switch-events {
+    lid-close { spawn "dms" "ipc" "call" "lock" "lock"; }
+}
+
 binds {
     // shows a list of important hotkeys.
     Mod+Shift+dead_diaeresis { show-hotkey-overlay; }
@@ -158,9 +165,6 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     Mod+O repeat=false { toggle-overview; }
 

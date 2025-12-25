@@ -1,5 +1,6 @@
 {
   "currentThemeName": "dynamic",
+  "currentThemeCategory": "dynamic",
   "customThemeFile": "",
   "matugenScheme": "scheme-neutral",
   "runUserMatugenTemplates": true,
@@ -9,6 +10,8 @@
   "widgetBackgroundColor": "sth",
   "widgetColorMode": "default",
   "cornerRadius": 12,
+  "niriLayoutGapsOverride": -1,
+  "niriLayoutRadiusOverride": -1,
   "use24HourClock": true,
   "showSeconds": false,
   "useFahrenheit": false,
@@ -122,7 +125,7 @@
   "weatherCoordinates": "59.9151650,10.7704410",
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "vpnLastConnected": "",
   "iconTheme": "System Default",
   "launcherLogoMode": "os",
@@ -131,7 +134,7 @@
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
-  "launcherLogoSizeOffset": 3,
+  "launcherLogoSizeOffset": 0,
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Adwaita Mono",
   "fontWeight": 400,
@@ -163,7 +166,9 @@
   "fadeToLockGracePeriod": 5,
   "launchPrefix": "",
   "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
+  "wifiNetworkPins": {
+    "preferredWifi": "Simens-nett"
+  },
   "bluetoothDevicePins": {},
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
@@ -179,10 +184,12 @@
   "matugenTemplateFirefox": true,
   "matugenTemplatePywalfox": true,
   "matugenTemplateVesktop": true,
+  "matugenTemplateEquibop": true,
   "matugenTemplateGhostty": true,
   "matugenTemplateKitty": true,
   "matugenTemplateFoot": true,
   "matugenTemplateAlacritty": true,
+  "matugenTemplateNeovim": true,
   "matugenTemplateWezterm": true,
   "matugenTemplateDgop": true,
   "matugenTemplateKcolorscheme": true,
@@ -201,6 +208,7 @@
   "dockBorderColor": "surfaceText",
   "dockBorderOpacity": 1,
   "dockBorderThickness": 1,
+  "dockIsolateDisplays": false,
   "notificationOverlayEnabled": false,
   "modalDarkenBackground": false,
   "lockScreenShowPowerActions": true,
@@ -209,7 +217,7 @@
   "lockScreenShowDate": true,
   "lockScreenShowProfileImage": true,
   "lockScreenShowPasswordField": true,
-  "enableFprint": false,
+  "enableFprint": true,
   "maxFprintTries": 15,
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
@@ -314,6 +322,10 @@
         {
           "id": "controlCenterButton",
           "enabled": true
+        },
+        {
+          "id": "displayMirror",
+          "enabled": true
         }
       ],
       "spacing": 4,
@@ -402,6 +414,7 @@
   "systemMonitorTopProcessCount": 3,
   "systemMonitorTopProcessSortBy": "cpu",
   "systemMonitorGraphInterval": 60,
+  "systemMonitorLayoutMode": "auto",
   "systemMonitorX": -1,
   "systemMonitorY": -1,
   "systemMonitorWidth": 320,
@@ -415,6 +428,10 @@
       "HDMI-A-2": {
         "x": 21.40234375,
         "y": 66.43359375
+      },
+      "eDP-1": {
+        "x": 11.6640625,
+        "y": 56.2734375
       }
     },
     "systemMonitor": {
@@ -424,5 +441,44 @@
       }
     }
   },
-  "configVersion": 3
+  "desktopWidgetGridSettings": {},
+  "desktopWidgetInstances": [
+    {
+      "id": "dw_clock_primary",
+      "widgetType": "desktopClock",
+      "name": "Desktop Clock",
+      "enabled": true,
+      "config": {
+        "style": "stacked",
+        "transparency": 0.8,
+        "colorMode": "primary",
+        "customColor": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1,
+          "hsvHue": -1,
+          "hsvSaturation": 0,
+          "hsvValue": 1,
+          "hslHue": -1,
+          "hslSaturation": 0,
+          "hslLightness": 1,
+          "valid": true
+        },
+        "showDate": true,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ]
+      },
+      "positions": {
+        "eDP-1": {
+          "x": 19.6953125,
+          "y": 62.4453125
+        }
+      }
+    }
+  ],
+  "configVersion": 4
 }

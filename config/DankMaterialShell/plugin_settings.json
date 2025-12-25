@@ -1,0 +1,8 @@
+{
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "displayMirror": {
+    "enabled": true
+  }
+}
