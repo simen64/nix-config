@@ -14,6 +14,9 @@
     home.packages = with pkgs; [
       devenv
       go
+      unzip
+      python3
+      age-plugin-yubikey
     ];
   };
 }
