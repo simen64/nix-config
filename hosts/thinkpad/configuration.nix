@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../nixosModules
+    ../../nixosModules/ccc-wifi.nix
   ];
 
   # Bootloader.
@@ -23,10 +24,6 @@
 
   networking.hostName = "simens-laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -44,9 +41,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   services.gnome.games.enable = false;
-
-  # Enable niri
-  programs.niri.enable = true;
 
   # Enable dconf
   programs.dconf.enable = true;
@@ -93,8 +87,6 @@
       imports = [
         ../../homeManagerModules
       ];
-
-      dank-niri.enable = true;
     };
   };
 
@@ -108,36 +100,14 @@
   # zsh
   programs.zsh.enable = true;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   services.fwupd.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
-    lazygit
-    curl
-    ripgrep
-    fd
-    bind
-    tailscale
-    python3
-    unzip
-    wl-clipboard
     adwaita-fonts
     adwaita-icon-theme
   ];
-
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.spotify.Client"
-      "org.onlyoffice.desktopeditors"
-    ];
-  };
 
   # Fingerprint reader
   systemd.services.fprintd = {
@@ -148,7 +118,7 @@
   services = {
     fprintd.enable = true;
     envfs.enable = true;
-    tailscale.enable = true;
+    pcscd.enable = true;
   };
 
   security.pam.services = {
