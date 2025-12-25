@@ -24,12 +24,15 @@ in {
       [
         nodejs_24
         gcc
+        vim
         neovim
         fzf
         unzip
         ripgrep
         qwen-code
         lazygit
+        curl
+        fd
       ]
       ++ lib.optional pkgs.stdenv.isLinux wl-clipboard;
 
