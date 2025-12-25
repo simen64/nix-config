@@ -28,6 +28,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dgop.follows = "dgop";
     };
+
+    dms-plugins = {
+      url = "github:AvengeMedia/dms-plugins";
+      flake = false;
+    };
+
+    dms-display-mirror = {
+      url = "github:jfchenier/dms-display-mirror";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -45,7 +55,7 @@
         ./hosts/thinkpad/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
-        inputs.dankMaterialShell.nixosModules.dankMaterialShell
+        inputs.dankMaterialShell.nixosModules.dank-material-shell
       ];
     };
 
@@ -55,6 +65,7 @@
         ./hosts/desktop-p/configuration.nix
         inputs.home-manager.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
+        inputs.dankMaterialShell.nixosModules.dank-material-shell
       ];
     };
 
