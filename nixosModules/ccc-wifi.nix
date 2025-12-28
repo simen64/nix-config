@@ -20,7 +20,6 @@
 
     [802-1x]
     altsubject-matches=DNS:radius.c3noc.net
-    ca-cert=/etc/ssl/certs/ISRG_Root_X1.pem
     eap=ttls
     identity=outboundonly
     password=outboundonly
@@ -32,4 +31,6 @@
     [ipv6]
     method=auto
   '';
+
+  environment.etc."NetworkManager/system-connections/39C3.nmconnection".mode = "600";
 }
