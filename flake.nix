@@ -38,6 +38,11 @@
       url = "github:jfchenier/dms-display-mirror";
       flake = false;
     };
+
+    dms-tailscale = {
+      url = "github:cglavin50/dms-tailscale";
+      flake = false;
+    };
   };
 
   outputs = {
