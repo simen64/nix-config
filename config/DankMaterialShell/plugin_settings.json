@@ -4,5 +4,8 @@
   },
   "displayMirror": {
     "enabled": true
+  },
+  "tailscale": {
+    "enabled": true
   }
 }
