@@ -64,6 +64,16 @@ in {
       };
     };
 
+    home.packages = with pkgs; [
+      # zsh plugins
+      pkgs.zsh-completions
+      pkgs.zsh-autosuggestions
+      pkgs.zsh-syntax-highlighting
+
+      # utils
+      tldr
+    ];
+
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -92,13 +102,6 @@ in {
         WORDCHARS='*?._-[]~=&;!#$%^(){}<>'
       '';
     };
-
-    # zsh plugins
-    home.packages = with pkgs; [
-      pkgs.zsh-completions
-      pkgs.zsh-autosuggestions
-      pkgs.zsh-syntax-highlighting
-    ];
 
     programs.zoxide = {
       enable = true;
@@ -205,9 +208,5 @@ in {
         version = 3;
       };
     };
-
-    #home.file = {
-    #  ".zshrc".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/zshrc";
-    #};
   };
 }

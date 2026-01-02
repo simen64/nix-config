@@ -43,6 +43,7 @@ in {
       plugins = {
         dankBatteryAlerts.src = inputs.dms-plugins + "/DankBatteryAlerts";
         dms-display-mirror.src = inputs.dms-display-mirror;
+        dms-tailscale.src = inputs.dms-tailscale;
       };
     };
 
