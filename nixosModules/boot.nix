@@ -3,15 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.profiles.limine;
-in
-{
-  environment.systemPackages = with pkgs; [
-    sbctl
-  ];
-
+in {
   options.profiles.limine.enable = lib.mkEnableOption "Limine bootloader";
   options.profiles.limine.secureboot = lib.mkEnableOption "Secureboot";
 
@@ -28,7 +22,7 @@ in
           };
           graphicalTerminal = {
             palette = "4c4f69;d20f39;40a02b;dc8a78;1e66f5;ea76cb;209fb5;7c7f93";
-            font.scale = "3x3";
+            font.scale = "2x2";
           };
           wallpapers = [
             ../wallpapers/forest.jpg

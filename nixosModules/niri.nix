@@ -13,9 +13,19 @@
   config = lib.mkIf config.niri.enable {
     programs.niri.enable = true;
 
+    services.displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+
+      configHome = "/home/simen";
+    };
+
     environment.systemPackages = with pkgs; [
+      wev
       wl-mirror
+      brightnessctl
       gnome-keyring
+      xwayland-satellite
     ];
   };
 }

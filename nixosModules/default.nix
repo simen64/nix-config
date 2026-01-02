@@ -11,6 +11,7 @@
     ./desktop-apps.nix
     ./niri.nix
     ../modules/nix.nix
+    ./boot.nix
   ];
 
   user.enable = lib.mkDefault true;

@@ -22,6 +22,7 @@
         "org.onlyoffice.desktopeditors"
         "dev.vencord.Vesktop"
         "org.signal.Signal"
+        "org.chromium.Chromium"
       ];
 
       overrides = {
@@ -32,5 +33,8 @@
 
       update.onActivation = true;
     };
+
+    environment.systemPackages = with pkgs; [
+    ];
   };
 }

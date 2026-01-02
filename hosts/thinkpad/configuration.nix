@@ -16,8 +16,8 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -38,8 +38,8 @@
   # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  #services.displayManager.gdm.enable = true;
+  #services.desktopManager.gnome.enable = true;
   services.gnome.games.enable = false;
 
   # Enable dconf
@@ -107,12 +107,20 @@
   environment.systemPackages = with pkgs; [
     adwaita-fonts
     adwaita-icon-theme
+    sbctl
   ];
 
   # Fingerprint reader
   systemd.services.fprintd = {
     wantedBy = ["multi-user.target"];
     serviceConfig.Type = "simple";
+  };
+
+  profiles = {
+    limine = {
+      enable = true;
+      secureboot = false;
+    };
   };
 
   services = {
