@@ -122,6 +122,7 @@ window-rule {
 
 window-rule {
   match app-id="org.gnome.Calculator"
+  match app-id="org.gnome.Showtime"
 
   open-floating true
 }

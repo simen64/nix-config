@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     ../../nixosModules
-    ../../nixosModules/ccc-wifi.nix
   ];
 
   # Bootloader.
@@ -27,6 +26,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  services.resolved = {
+    enable = true;
+    dnssec = "false";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";

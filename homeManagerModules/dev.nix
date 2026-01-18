@@ -15,6 +15,7 @@
       devenv
       go
       unzip
+      bind
       python3
       age-plugin-yubikey
     ];
