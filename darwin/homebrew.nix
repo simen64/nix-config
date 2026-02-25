@@ -26,6 +26,7 @@
       "postman"
       "docker-desktop"
       "podman-desktop"
+      "figma"
 
       ## messaging
       "signal"
@@ -40,12 +41,16 @@
       "localsend"
       "google-chrome"
       "ultimaker-cura"
+      "balenaetcher"
+      "blender"
+      "netbirdio/tap/netbird-ui"
     ];
     brews = [
       "stow"
       "podman"
       "podman-compose"
       "docker"
+      "mole"
     ];
     taps = [
     ];
