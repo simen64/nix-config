@@ -169,6 +169,16 @@ def main() -> None:
     # Change to nix config directory
     os.chdir(nix_dir)
 
+    # ── 0. Pull latest changes ───────────────────────────────────────────────
+    section("Pulling latest changes")
+    pull_result = run(["git", "pull"], capture_output=True, text=True)
+    if pull_result.returncode != 0:
+        error("git pull failed:")
+        print(c(RED, pull_result.stderr.strip() or pull_result.stdout.strip()))
+        sys.exit(1)
+    output = pull_result.stdout.strip()
+    info(output if output else "Already up to date.")
+
     # ── 1. Check for changes ─────────────────────────────────────────────────
     section("Checking for changes")
     if not args.force and not has_changes():
