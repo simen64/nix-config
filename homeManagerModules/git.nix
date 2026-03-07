@@ -1,12 +1,16 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     git = {
       enable = lib.mkEnableOption "Enable git module";
     };
   };
 
-config = lib.mkIf config.git.enable ({
+  config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
       settings = {
@@ -14,13 +18,12 @@ config = lib.mkIf config.git.enable ({
         user.name = "simen64";
       };
 
-      signing.key = 
-        if pkgs.stdenv.hostPlatform.isDarwin then
-          "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
-        else if pkgs.stdenv.hostPlatform.isLinux then
-          "your-linux-gpg-key-id"
-        else
-          "default-gpg-key-id";
+      signing.key =
+        if pkgs.stdenv.hostPlatform.isDarwin
+        then "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
+        else if pkgs.stdenv.hostPlatform.isLinux
+        then "your-linux-gpg-key-id"
+        else "default-gpg-key-id";
 
       signing.signByDefault = true;
       signing.format = "ssh";
@@ -34,7 +37,5 @@ config = lib.mkIf config.git.enable ({
         enable = true;
       };
     };
-
-  }
-);
+  };
 }

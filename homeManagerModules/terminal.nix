@@ -91,8 +91,15 @@ in {
         update-gitverify = "cp ~/Documents/root-of-trust/gitverify.json ~/.config/gitverify/github.com/simen64/gitverify.json";
       };
 
+      envExtra = ''
+        export GITHUB_TOKEN=$(cat ~/.github_copilot_token)
+      '';
+
       initContent = ''
         eval "$(ssh-agent -s)" &>/dev/null
+        eval ~/.zshenv
+
+        export SSH_AUTH_SOCK="/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 
         # Keybinds
         bindkey '^[[1;5C' forward-word

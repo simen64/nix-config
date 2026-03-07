@@ -27,6 +27,7 @@
       "docker-desktop"
       "podman-desktop"
       "figma"
+      "copilot-cli"
 
       ## messaging
       "signal"

@@ -11,6 +11,8 @@
     home.packages = with pkgs; [
     ];
 
+    dms.enable = false;
+
     programs = {
     };
   };
