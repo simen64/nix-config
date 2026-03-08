@@ -70,7 +70,18 @@ def notify(message: str, title: str = "Nix Rebuild") -> None:
             ]
         )
     else:
-        run(["notify-send", "-e", title, message, "--icon=software-update-available"])
+        try:
+            run(
+                [
+                    "notify-send",
+                    "-e",
+                    title,
+                    message,
+                    "--icon=software-update-available",
+                ]
+            )
+        except:
+            pass
 
 
 def get_machine() -> str:
@@ -281,7 +292,9 @@ def main() -> None:
     full_message = f"{commit_msg} | {machine}: {gen}"
     info(f"Commit: {c(CYAN, full_message)}")
 
-    commit_result = run(["git", "commit", "-am", full_message], capture_output=True, text=True)
+    commit_result = run(
+        ["git", "commit", "-am", full_message], capture_output=True, text=True
+    )
     if commit_result.returncode != 0:
         error("git commit failed:")
         print(c(RED, commit_result.stderr.strip() or commit_result.stdout.strip()))

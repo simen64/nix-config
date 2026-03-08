@@ -43,7 +43,7 @@ in {
       plugins = {
         dankBatteryAlerts.src = inputs.dms-plugins + "/DankBatteryAlerts";
         dms-display-mirror.src = inputs.dms-display-mirror;
-        dms-tailscale.src = inputs.dms-tailscale;
+        #dms-tailscale.src = inputs.dms-tailscale;
       };
     };
 
@@ -52,5 +52,9 @@ in {
       ".config/DankMaterialShell/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell/settings.json";
       ".config/DankMaterialShell/plugin_settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/DankMaterialShell/plugin_settings.json";
     };
+
+    home.packages = with pkgs; [
+      kdePackages.breeze-icons
+    ];
   };
 }

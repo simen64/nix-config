@@ -127,8 +127,6 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "niriOverviewOverlayEnabled": true,
-  "weatherLocation": "41A, 0578",
-  "weatherCoordinates": "59.9151650,10.7704410",
   "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "wifi",
@@ -488,5 +486,6 @@
       }
     }
   ],
-  "configVersion": 4
+  "configVersion": 6,
+  "barElevationEnabled": false
 }
