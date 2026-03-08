@@ -33,6 +33,7 @@ in {
         lazygit
         curl
         fd
+        cargo
       ]
       ++ lib.optional pkgs.stdenv.isLinux wl-clipboard;
 

@@ -22,8 +22,8 @@
         if pkgs.stdenv.hostPlatform.isDarwin
         then "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
         else if pkgs.stdenv.hostPlatform.isLinux
-        then "your-linux-gpg-key-id"
-        else "default-gpg-key-id";
+        then "~/.ssh/id_ed25519_sk_rk"
+        else "~/.ssh/id_ed25519_sk_rk";
 
       signing.signByDefault = true;
       signing.format = "ssh";
