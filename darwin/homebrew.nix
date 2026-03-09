@@ -28,6 +28,7 @@
       "podman-desktop"
       "figma"
       "copilot-cli"
+      "gitkraken"
 
       ## messaging
       "signal"
