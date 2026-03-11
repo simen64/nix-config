@@ -18,15 +18,19 @@
         user.name = "simen64";
       };
 
-      signing.key =
-        if pkgs.stdenv.hostPlatform.isDarwin
-        then "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
-        else if pkgs.stdenv.hostPlatform.isLinux
-        then "~/.ssh/id_ed25519_sk_rk"
-        else "~/.ssh/id_ed25519_sk_rk";
-
+      signing.key = "~/.ssh/id_ed25519_sk_rk-USB-C.pub";
       signing.signByDefault = true;
       signing.format = "ssh";
+
+      includes = lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+        {
+          condition = "gitdir:~/nix/";
+          path = pkgs.writeText "nix-repo-gitconfig" ''
+            [user]
+              signingKey = /Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub
+          '';
+        }
+      ];
     };
 
     services = {
