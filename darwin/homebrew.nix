@@ -22,33 +22,28 @@
       ## dev
       "ghostty"
       "secretive"
-      "pgadmin4"
-      "postman"
       "docker-desktop"
       "podman-desktop"
       "figma"
       "copilot-cli"
-      "gitkraken"
 
       ## messaging
       "signal"
       "element"
 
       ## other
-      "nextcloud"
+      "seafile-client"
       "1password"
       "obsidian"
       "spotify"
       "firefox"
       "localsend"
       "google-chrome"
-      "ultimaker-cura"
       "balenaetcher"
       "blender"
       "netbirdio/tap/netbird-ui"
     ];
     brews = [
-      "stow"
       "podman"
       "podman-compose"
       "docker"

@@ -254,37 +254,11 @@ def main() -> None:
     # Authenticate sudo up-front so the output isn't interrupted
     run(["sudo", "echo", "Authentication complete"])
 
-    result = run(rebuild_cmd, capture_output=True, text=True)
+    result = run(rebuild_cmd)
 
     if result.returncode != 0:
-        # ── Pretty-print the error ───────────────────────────────────────────
         print()
-        print(c(RED + BOLD, "═" * 60))
-        print(c(RED + BOLD, "  Rebuild FAILED"))
-        print(c(RED + BOLD, "═" * 60))
-
-        # Nix errors often appear on stderr; strip duplicate blank lines
-        error_output = (result.stderr or result.stdout or "").strip()
-        relevant_lines = []
-        prev_blank = False
-        for line in error_output.splitlines():
-            is_blank = not line.strip()
-            if is_blank and prev_blank:
-                continue
-            relevant_lines.append(line)
-            prev_blank = is_blank
-
-        for line in relevant_lines:
-            if line.startswith("error:"):
-                print(c(RED, line))
-            elif line.startswith("warning:"):
-                print(c(YELLOW, line))
-            else:
-                print(c(DIM, line))
-
-        print(c(RED + BOLD, "═" * 60))
-        print()
-        error("Unstaging changes and aborting — nothing was committed or pushed.")
+        error("Rebuild failed — unstaging changes and aborting.")
         run(["git", "restore", "--staged", "."])
         sys.exit(1)
 
