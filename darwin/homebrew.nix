@@ -22,9 +22,6 @@
       ## dev
       "ghostty"
       "secretive"
-      "docker-desktop"
-      "podman-desktop"
-      "figma"
       "copilot-cli"
 
       ## messaging
@@ -38,15 +35,9 @@
       "spotify"
       "firefox"
       "localsend"
-      "google-chrome"
-      "balenaetcher"
-      "blender"
       "netbirdio/tap/netbird-ui"
     ];
     brews = [
-      "podman"
-      "podman-compose"
-      "docker"
       "mole"
     ];
     taps = [
