@@ -124,34 +124,7 @@ def get_current_generation(is_darwin: bool) -> str:
     return "unknown"
 
 
-def generate_commit_message() -> str:
-    try:
-        diff = run_output(["git", "diff", "-U0"])
-        if not diff:
-            diff = run_output(["git", "diff", "--cached", "-U0"])
-        prompt = (
-            "Using this git diff create a one sentence git commit message. "
-            "ALWAYS follow conventional commits. "
-            "ONLY output the commit message nothing else. "
-            "Keep the language simple. "
-            f"Git diff: {diff}"
-        )
-        return run_output(["qwen", "-p", prompt])
-    except Exception:
-        return ""
 
-
-def ask_commit_message(suggested: str) -> str:
-    if suggested:
-        while True:
-            answer = input(f"\nUse {c(CYAN, repr(suggested))}? [y/n]: ").strip().lower()
-            if answer in ("y", "yes"):
-                return suggested
-            if answer in ("n", "no"):
-                break
-            print("Please answer y or n.")
-
-    return input("Enter commit message: ").strip()
 
 
 # ── Main ─────────────────────────────────────────────────────────────────────
@@ -170,13 +143,6 @@ def main() -> None:
         "--pull",
         action="store_true",
         help="Pull latest changes from remote before rebuilding.",
-    )
-    parser.add_argument(
-        "-m",
-        "--message",
-        nargs="?",
-        default=None,
-        help="Commit message (skips AI generation prompt).",
     )
     args = parser.parse_args()
 
@@ -224,28 +190,12 @@ def main() -> None:
     if diff_stat.stdout:
         print(c(DIM, diff_stat.stdout))
 
-    # ── 4. Commit message ────────────────────────────────────────────────────
-    section("Commit message")
-    if args.message:
-        commit_msg = args.message
-        info(f"Using provided message: {c(CYAN, commit_msg)}")
-    else:
-        info("Generating commit message via qwen…")
-        suggested = generate_commit_message()
-        if not suggested:
-            warn("Could not generate a message (is qwen available?).")
-        commit_msg = ask_commit_message(suggested)
-
-    if not commit_msg:
-        error("Commit message cannot be empty — aborting.")
-        sys.exit(1)
-
-    # ── 5. Stage all changes ─────────────────────────────────────────────────
+    # ── 4. Stage all changes ─────────────────────────────────────────────────
     section("Staging")
     run(["git", "add", "-A"])
     success("All changes staged.")
 
-    # ── 6. Rebuild ───────────────────────────────────────────────────────────
+    # ── 5. Rebuild ───────────────────────────────────────────────────────────
     section("Rebuilding")
     rebuild_cmd = get_rebuild_cmd(machine)
     info(f"Running: {' '.join(rebuild_cmd)}")
@@ -264,17 +214,17 @@ def main() -> None:
 
     success("Rebuild succeeded.")
 
-    # ── 7. Notification ──────────────────────────────────────────────────────
+    # ── 6. Notification ──────────────────────────────────────────────────────
     notify("Nix rebuild finished successfully")
 
-    # ── 8. Commit & push ─────────────────────────────────────────────────────
+    # ── 7. Commit & push ─────────────────────────────────────────────────────
     section("Committing & pushing")
     gen = get_current_generation(is_darwin)
-    full_message = f"{commit_msg} | {machine}: {gen}"
-    info(f"Commit: {c(CYAN, full_message)}")
+    commit_msg = f"{machine}: {gen}"
+    info(f"Commit: {c(CYAN, commit_msg)}")
 
     commit_result = run(
-        ["git", "commit", "-am", full_message], capture_output=True, text=True
+        ["git", "commit", "-am", commit_msg], capture_output=True, text=True
     )
     if commit_result.returncode != 0:
         error("git commit failed:")
