@@ -89,6 +89,11 @@ in {
         cd = "z";
         nano = "echo 'use vim brah 🙏🥀'";
         update-gitverify = "cp ~/Documents/root-of-trust/gitverify.json ~/.config/gitverify/github.com/simen64/gitverify.json";
+        gs = "git status";
+        ga = "git add";
+        gc = "git commit -m";
+        gp = "git push";
+        gd = "git diff";
       };
 
       envExtra = ''
