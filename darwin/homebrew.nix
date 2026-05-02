@@ -8,7 +8,6 @@
       cleanup = "zap";
     };
 
-    caskArgs.no_quarantine = true;
     global.brewfile = true;
 
     # homebrew is best for GUI apps
@@ -23,6 +22,7 @@
       "ghostty"
       "secretive"
       "copilot-cli"
+      "docker-desktop"
 
       ## messaging
       "signal"
@@ -30,6 +30,7 @@
 
       ## other
       "seafile-client"
+      "seadrive"
       "1password"
       "obsidian"
       "spotify"
