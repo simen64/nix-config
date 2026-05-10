@@ -7,11 +7,11 @@ local map = LazyVim.safe_keymap_set
 map("n", "<leader>cq", function()
   vim.cmd("vsplit") -- vertical split
   vim.cmd("wincmd l") -- move to the new split (right pane)
-  vim.cmd("terminal qwen") -- replace 'htop' with your command
+  vim.cmd("terminal copilot") -- replace 'htop' with your command
 end, {
   noremap = true,
   silent = true,
-  desc = "Open qwen code('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })",
+  desc = "Open copilot('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })",
 })
 
 map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })

@@ -36,7 +36,6 @@
       "spotify"
       "firefox"
       "localsend"
-      "netbirdio/tap/netbird-ui"
     ];
     brews = [
       "mole"
