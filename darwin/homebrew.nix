@@ -39,6 +39,7 @@
     ];
     brews = [
       "mole"
+      "colima"
     ];
     taps = [
     ];
