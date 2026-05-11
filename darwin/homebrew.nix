@@ -22,7 +22,6 @@
       "ghostty"
       "secretive"
       "copilot-cli"
-      "docker-desktop"
 
       ## messaging
       "signal"
@@ -40,6 +39,7 @@
     brews = [
       "mole"
       "colima"
+      "docker"
     ];
     taps = [
     ];
