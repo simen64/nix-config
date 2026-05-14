@@ -34,6 +34,7 @@
       "obsidian"
       "spotify"
       "firefox"
+      "prismlauncher"
       "localsend"
     ];
     brews = [
