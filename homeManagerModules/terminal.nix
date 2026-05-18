@@ -72,6 +72,7 @@ in {
 
       # utils
       tldr
+      gemini-cli
     ];
 
     programs.zsh = {
