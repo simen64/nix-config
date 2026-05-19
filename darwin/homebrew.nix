@@ -36,11 +36,13 @@
       "firefox"
       "prismlauncher"
       "localsend"
+      "obs"
     ];
     brews = [
       "mole"
       "colima"
       "docker"
+      "ffmpeg"
     ];
     taps = [
     ];
