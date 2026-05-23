@@ -37,6 +37,7 @@
       "prismlauncher"
       "localsend"
       "obs"
+      "netbird-ui"
     ];
     brews = [
       "mole"
@@ -45,6 +46,7 @@
       "ffmpeg"
     ];
     taps = [
+      "netbirdio/tap"
     ];
   };
 }
