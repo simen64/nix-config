@@ -43,6 +43,7 @@
       "mole"
       "colima"
       "docker"
+      "docker-compose"
       "ffmpeg"
     ];
     taps = [
