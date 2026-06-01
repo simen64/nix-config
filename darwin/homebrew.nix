@@ -38,6 +38,7 @@
       "localsend"
       "obs"
       "netbird-ui"
+      "caffeine"
     ];
     brews = [
       "mole"
