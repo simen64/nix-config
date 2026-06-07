@@ -106,12 +106,33 @@
 
   services.fwupd.enable = true;
 
+  services.netbird = {
+    enable = true;
+  };
+
+  users.users.netbird = {
+    isSystemUser = true;
+    group = "netbird";
+  };
+  users.groups.netbird = {};
+
+  services.netbird.clients.default = {
+    environment = {
+      NB_MANAGEMENT_URL = "https://vpn.simenmo.com:443";
+    };
+    port = 51820;
+    name = "netbird";
+    interface = "wt0";
+    hardened = false;
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     adwaita-fonts
     adwaita-icon-theme
     sbctl
+    github-copilot-cli
   ];
 
   # Fingerprint reader
