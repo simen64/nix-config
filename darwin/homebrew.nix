@@ -22,6 +22,7 @@
       "ghostty"
       "secretive"
       "copilot-cli"
+      "figma"
 
       ## messaging
       "signal"
