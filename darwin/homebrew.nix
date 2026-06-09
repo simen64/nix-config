@@ -33,7 +33,7 @@
       "seadrive"
       "1password"
       "obsidian"
-      #"spotify"
+      "spotify"
       "firefox"
       "prismlauncher"
       "localsend"
