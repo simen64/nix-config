@@ -11,6 +11,10 @@
   };
 
   config = lib.mkIf config.git.enable {
+    home.sessionVariables = {
+      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-tpm-agent.sock";
+    };
+
     programs.git = {
       enable = true;
       settings = {
@@ -37,7 +41,9 @@
             condition = "gitdir:/etc/nixos/";
             path = pkgs.writeText "nixos-repo-gitconfig" ''
               [user]
-                signingKey = ~/.ssh/tpm_key.tpm
+                signingKey = ~/.ssh/tpm_key_signing.pub
+              [core]
+                sshCommand = "ssh -o IdentityAgent=$XDG_RUNTIME_DIR/ssh-tpm-agent.sock -o IdentitiesOnly=true -o IdentityFile=~/.ssh/tpm_key.pub"
             '';
           }
         ]);
