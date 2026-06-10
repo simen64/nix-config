@@ -39,8 +39,8 @@
       flake = false;
     };
 
-    dms-tailscale = {
-      url = "github:cglavin50/dms-tailscale";
+    dms-plugins-dadangdut33 = {
+      url = "github:Dadangdut33/dms-plugins";
       flake = false;
     };
   };

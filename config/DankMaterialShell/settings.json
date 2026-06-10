@@ -532,11 +532,11 @@
           "enabled": true
         },
         {
-          "id": "tailscale",
+          "id": "privacyIndicator",
           "enabled": true
         },
         {
-          "id": "privacyIndicator",
+          "id": "netbirdStatus",
           "enabled": true
         },
         {

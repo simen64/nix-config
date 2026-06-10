@@ -7,5 +7,14 @@
   },
   "tailscale": {
     "enabled": true
+  },
+  "netbirdStatus": {
+    "enabled": true,
+    "lastInstalled": true,
+    "lastRunning": false,
+    "lastIp": "",
+    "lastFqdn": "",
+    "lastPeerCount": 0,
+    "lastPeerConnected": 0
   }
 }
