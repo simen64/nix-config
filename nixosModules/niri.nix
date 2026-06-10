@@ -21,6 +21,11 @@
       configHome = "/home/simen";
     };
 
+    users.users.simen = {
+      isNormalUser = true;
+      extraGroups = ["greeter"];
+    };
+
     environment.systemPackages = with pkgs; [
       wev
       wl-mirror
