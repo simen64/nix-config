@@ -115,7 +115,7 @@ def get_current_generation(is_darwin: bool) -> str:
         if is_darwin:
             out = run_output(["sudo", "darwin-rebuild", "--list-generations"])
         else:
-            out = run_output(["nixos-rebuild", "list-generations"])
+            out = run_output(["sudo", "nixos-rebuild", "list-generations"])
         for line in out.splitlines():
             if "current" in line:
                 return line.replace("   (current)", "").strip()

@@ -129,8 +129,9 @@ window-rule {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match title="Firefox"
     open-floating true
+    open-maximized true
 }
 
 // Example: block out two password managers from screen capture.

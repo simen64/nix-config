@@ -23,6 +23,7 @@
         "dev.vencord.Vesktop"
         "org.signal.Signal"
         "org.chromium.Chromium"
+        "org.gnome.baobab"
       ];
 
       overrides = {
@@ -35,6 +36,11 @@
     };
 
     environment.systemPackages = with pkgs; [
+      gnome-calculator
+      eog
+      mpv
+      gnome-disk-utility
+      gnome-text-editor
     ];
   };
 }
