@@ -124,9 +124,6 @@ def get_current_generation(is_darwin: bool) -> str:
     return "unknown"
 
 
-
-
-
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -220,6 +217,7 @@ def main() -> None:
     # ── 7. Commit & push ─────────────────────────────────────────────────────
     section("Committing & pushing")
     gen = get_current_generation(is_darwin)
+    print(gen)
     commit_msg = f"{machine}: {gen}"
     info(f"Commit: {c(CYAN, commit_msg)}")
 
