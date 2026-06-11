@@ -20,6 +20,7 @@
       python3
       uv
       age-plugin-yubikey
+      opencode
     ];
   };
 }

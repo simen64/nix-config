@@ -18,6 +18,8 @@
 
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
+    nix-mineral.url = "github:cynicsketch/nix-mineral/";
+
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";

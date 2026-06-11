@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{...}: {
   environment.etc."NetworkManager/system-connections/39C3.nmconnection".text = ''
     [connection]
     id=39C3

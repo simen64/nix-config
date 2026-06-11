@@ -222,7 +222,7 @@
   "greeterRememberLastSession": true,
   "greeterRememberLastUser": true,
   "greeterAutoLogin": false,
-  "greeterEnableFprint": false,
+  "greeterEnableFprint": true,
   "greeterEnableU2f": false,
   "greeterWallpaperPath": "",
   "greeterUse24HourClock": true,

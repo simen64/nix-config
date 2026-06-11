@@ -15,6 +15,11 @@
     "lastIp": "100.123.90.135",
     "lastFqdn": "simens-laptop.netbird.selfhosted",
     "lastPeerCount": 5,
-    "lastPeerConnected": 5
+    "lastPeerConnected": 5,
+    "showIpAddress": false,
+    "colorizeIcon": true,
+    "showPing": false,
+    "refreshInterval": 25500,
+    "adminConsoleUrl": "https://vpn.simenmo.com"
   }
 }
