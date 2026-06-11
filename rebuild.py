@@ -117,8 +117,10 @@ def get_current_generation(is_darwin: bool) -> str:
         else:
             out = run_output(["sudo", "nixos-rebuild", "list-generations"])
         for line in out.splitlines():
-            if "current" in line:
-                return line.replace("   (current)", "").strip()
+            if "(current)" in line or (line.split() and line.split()[-1] == "True"):
+                parts = line.split()
+                if parts:
+                    return parts[0]
     except Exception:
         pass
     return "unknown"
