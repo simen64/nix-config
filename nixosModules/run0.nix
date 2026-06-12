@@ -19,8 +19,8 @@
     };
     users.users.simen = {
       isNormalUser = lib.mkForce true;
-      description = lib.mkForce "Daily driver account";
-      extraGroups = lib.mkForce ["networkmanager" "audio" "video" "tty" "tss" "dialout" "nix-users"];
+      description = lib.mkForce "Simen";
+      extraGroups = lib.mkForce ["networkmanager" "audio" "video" "tty" "tss" "dialout" "nix-users" "greeter"];
     };
 
     users.groups.nix-users = {};
