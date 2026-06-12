@@ -112,6 +112,10 @@ in {
           export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-tpm-agent.sock"
         fi
 
+        if [ "$TERM" = "xterm-ghostty" ] && ! infocmp xterm-ghostty &>/dev/null 2>&1; then
+          export TERM=xterm-256color
+        fi
+
         # Keybinds
         bindkey '^[[1;5C' forward-word
         bindkey '^[[1;5D' backward-word
