@@ -112,7 +112,7 @@ in {
           export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-tpm-agent.sock"
         fi
 
-        if [ "$TERM" = "xterm-ghostty" ] then
+        if [ "$TERM" = "xterm-ghostty" ]; then
           export TERM=xterm-256color
         fi
 
