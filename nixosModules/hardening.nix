@@ -79,10 +79,13 @@
         "systemd.ssh_auto=no"
         "mem_encrypt=on"
       ];
+
+      security.lockKernelModules = true;
     })
 
     (lib.mkIf config.hardening.hardened_malloc.enable {
-      environment.memoryAllocator.provider = "graphene-hardened";
+      environment.memoryAllocator.provider = "scudo";
+      environment.variables.SCUDO_OPTIONS = "zero_contents=1";
     })
   ];
 }

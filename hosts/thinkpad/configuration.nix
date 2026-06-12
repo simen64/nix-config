@@ -75,7 +75,7 @@
   };
 
   hardening.enable = true;
-  hardening.hardened_malloc.enable = true;
+  hardening.hardened_malloc.enable = false;
   run0.enable = true;
 
   system.stateVersion = "25.05";
