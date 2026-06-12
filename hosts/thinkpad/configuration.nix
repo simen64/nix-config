@@ -74,7 +74,8 @@
     xscreensaver.fprintAuth = true;
   };
 
-  mineral.enable = true;
+  hardening.enable = true;
+  hardening.hardened_malloc.enable = true;
   run0.enable = true;
 
   system.stateVersion = "25.05";

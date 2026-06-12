@@ -12,7 +12,7 @@
     ./niri.nix
     ../modules/nix.nix
     ./boot.nix
-    ./mineral.nix
+    ./hardening.nix
     ./run0.nix
   ];
 
