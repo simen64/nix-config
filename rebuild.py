@@ -106,16 +106,16 @@ def get_flake_path(machine: str) -> str:
 def get_rebuild_cmd(machine: str) -> list[str]:
     flake = get_flake_path(machine)
     if platform.system() == "Darwin":
-        return ["sudo", "darwin-rebuild", "switch", "--flake", flake]
-    return ["sudo", "nixos-rebuild", "switch", "--flake", flake]
+        return ["run0", "darwin-rebuild", "switch", "--flake", flake]
+    return ["run0", "nixos-rebuild", "switch", "--flake", flake]
 
 
 def get_current_generation(is_darwin: bool) -> str:
     try:
         if is_darwin:
-            out = run_output(["sudo", "darwin-rebuild", "--list-generations"])
+            out = run_output(["run0", "darwin-rebuild", "--list-generations"])
         else:
-            out = run_output(["sudo", "nixos-rebuild", "list-generations"])
+            out = run_output(["run0", "nixos-rebuild", "list-generations"])
         for line in out.splitlines():
             if "(current)" in line or (line.split() and line.split()[-1] == "True"):
                 parts = line.split()
@@ -200,8 +200,8 @@ def main() -> None:
     info(f"Running: {' '.join(rebuild_cmd)}")
     print()
 
-    # Authenticate sudo up-front so the output isn't interrupted
-    run(["sudo", "echo", "Authentication complete"])
+    # Authenticate run0 up-front so the output isn't interrupted
+    run(["run0", "echo", "Authentication complete"])
 
     result = run(rebuild_cmd)
 

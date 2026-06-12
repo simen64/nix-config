@@ -130,7 +130,6 @@ window-rule {
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match title="Firefox"
-    open-floating true
     open-maximized true
 }
 

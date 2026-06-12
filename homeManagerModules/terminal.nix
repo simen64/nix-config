@@ -95,6 +95,7 @@ in {
         gc = "git commit -m";
         gp = "git push";
         gd = "git diff";
+        run0 = "run0 --background=";
       };
 
       envExtra = ''

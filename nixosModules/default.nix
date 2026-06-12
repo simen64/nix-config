@@ -13,6 +13,7 @@
     ../modules/nix.nix
     ./boot.nix
     ./mineral.nix
+    ./run0.nix
   ];
 
   user.enable = lib.mkDefault true;

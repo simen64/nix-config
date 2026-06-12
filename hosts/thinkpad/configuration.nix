@@ -75,6 +75,7 @@
   };
 
   mineral.enable = true;
+  run0.enable = true;
 
   system.stateVersion = "25.05";
 }
