@@ -72,7 +72,7 @@ in {
 
       # utils
       tldr
-      gemini-cli
+      antigravity-cli
     ];
 
     programs.zsh = {
