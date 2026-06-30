@@ -25,7 +25,7 @@
     users.groups.netbird = {};
 
     services.netbird.clients.default = {
-      environment.NB_MANAGEMENT_URL = "http://vpn.simenmo.com:80";
+      environment.NB_MANAGEMENT_URL = "https://vpn.simenmo.com:443";
       port = 51820;
       name = config.netbird.name;
       interface = "wt0";

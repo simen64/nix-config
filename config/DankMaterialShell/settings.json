@@ -602,15 +602,15 @@
           "enabled": true
         },
         {
-          "id": "clipboard",
-          "enabled": true
-        },
-        {
           "id": "privacyIndicator",
           "enabled": true
         },
         {
           "id": "netbirdStatus",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
           "enabled": true
         },
         {
