@@ -103,11 +103,20 @@ def get_flake_path(machine: str) -> str:
     return f"/etc/nixos/#{machine}"
 
 
+def privilege_cmd() -> list[str]:
+    try:
+        subprocess.run(["sudo", "--version"], capture_output=True, text=True)
+        return ["sudo"]
+    except FileNotFoundError:
+        return ["run0", "--background="]
+
+
 def get_rebuild_cmd(machine: str) -> list[str]:
     flake = get_flake_path(machine)
     if platform.system() == "Darwin":
         return ["sudo", "darwin-rebuild", "switch", "--flake", flake]
-    return ["run0", "--background=", "nixos-rebuild", "switch", "--flake", flake]
+    priv = privilege_cmd()
+    return [*priv, "nixos-rebuild", "switch", "--flake", flake]
 
 
 def get_current_generation(is_darwin: bool) -> str:
@@ -115,8 +124,9 @@ def get_current_generation(is_darwin: bool) -> str:
         if is_darwin:
             out = run_output(["sudo", "darwin-rebuild", "--list-generations"])
         else:
+            priv = privilege_cmd()
             out = run_output(
-                ["run0", "--background=", "nixos-rebuild", "list-generations"]
+                [*priv, "nixos-rebuild", "list-generations"]
             )
         for line in out.splitlines():
             if "(current)" in line or (line.split() and line.split()[-1] == "True"):
@@ -202,8 +212,10 @@ def main() -> None:
     info(f"Running: {' '.join(rebuild_cmd)}")
     print()
 
-    # Authenticate run0 up-front so the output isn't interrupted
-    run(["run0", "--background=", "echo", "Authentication complete"])
+    # Authenticate up-front so the output isn't interrupted
+    priv = privilege_cmd()
+    if priv[0] == "run0":
+        run([*priv, "echo", "Authentication complete"])
 
     result = run(rebuild_cmd)
 

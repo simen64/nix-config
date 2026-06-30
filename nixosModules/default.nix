@@ -45,6 +45,8 @@
   security.tpm2.tctiEnvironment.enable = lib.mkDefault true;
 
   home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
     users.simen.imports = [../homeManagerModules];
   };

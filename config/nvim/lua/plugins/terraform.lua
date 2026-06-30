@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         terraformls = {},
+        tflint = {},
       },
     },
   },
@@ -14,9 +15,9 @@ return {
     },
   },
   {
-    "mason-org/mason.nvim",
+    "williamboman/mason.nvim",
     opts = {
-      ensure_installed = { "terraform-ls" },
+      ensure_installed = { "terraform-ls", "tflint" },
     },
   },
 }

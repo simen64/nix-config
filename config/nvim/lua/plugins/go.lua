@@ -55,7 +55,7 @@ return {
   },
   -- Go formatting tools
   {
-    "mason-org/mason.nvim",
+    "williamboman/mason.nvim",
     opts = { ensure_installed = { "goimports", "gofumpt", "golangci-lint" } },
   },
 }
