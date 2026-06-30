@@ -140,10 +140,10 @@ def main() -> None:
         help="Skip the git-changes check and rebuild even when nothing changed.",
     )
     parser.add_argument(
-        "-p",
-        "--pull",
+        "-np",
+        "--no-pull",
         action="store_true",
-        help="Pull latest changes from remote before rebuilding.",
+        help="Dont pull latest changes from remote before rebuilding.",
     )
     args = parser.parse_args()
 
@@ -154,7 +154,7 @@ def main() -> None:
     os.chdir(nix_dir)
 
     # ── 0. Pull latest changes ───────────────────────────────────────────────
-    if args.pull:
+    if not args.no_pull:
         section("Pulling latest changes")
         pull_result = run(["git", "pull"], capture_output=True, text=True)
         if pull_result.returncode != 0:
