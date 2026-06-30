@@ -10,6 +10,7 @@
     ./onePassword.nix
     ./desktop-apps.nix
     ./niri.nix
+    ./netbird.nix
     ../modules/nix.nix
     ./boot.nix
     ./hardening.nix

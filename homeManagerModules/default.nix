@@ -32,4 +32,6 @@
   home.packages = with pkgs; [
     alejandra
   ];
+
+  nixpkgs.config.allowUnfree = true;
 }

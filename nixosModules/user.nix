@@ -20,5 +20,6 @@
         #  thunderbird
       ];
     };
+    nixpkgs.config.allowUnfree = true;
   };
 }

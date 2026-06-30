@@ -24,6 +24,8 @@
         "org.signal.Signal"
         "org.chromium.Chromium"
         "org.gnome.baobab"
+        "org.prismlauncher.PrismLauncher"
+        "com.github.tchx84.Flatseal"
       ];
 
       overrides = {
@@ -41,6 +43,8 @@
       mpv
       gnome-disk-utility
       gnome-text-editor
+      seafile-client
+      seadrive-gui
     ];
   };
 }

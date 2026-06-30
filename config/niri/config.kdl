@@ -123,6 +123,7 @@ window-rule {
 window-rule {
   match app-id="org.gnome.Calculator"
   match app-id="org.gnome.Showtime"
+  match app-id="com.seafile."
 
   open-floating true
 }
@@ -130,7 +131,6 @@ window-rule {
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match title="Firefox"
-    open-maximized true
 }
 
 // Example: block out two password managers from screen capture.
