@@ -43,7 +43,15 @@
       mpv
       gnome-disk-utility
       gnome-text-editor
-      seafile-client
+      (pkgs.symlinkJoin {
+        name = "seafile-client";
+        paths = [pkgs.seafile-client];
+        buildInputs = [pkgs.makeWrapper];
+        postBuild = ''
+          wrapProgram $out/bin/seafile-applet \
+            --set QT_QPA_PLATFORMTHEME ""
+        '';
+      })
       seadrive-gui
     ];
   };
