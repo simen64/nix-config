@@ -16,16 +16,16 @@ input {
 }
 
 // `niri msg outputs`
-// output "Samsung Electric Company LS32A70 H4ZT400579" {
-//  scale 1.18
-//  transform "normal"
-//  focus-at-startup
-//}
-//
-//output "Lenovo Group Limited LEN L27q-10 U4345WV4" {
-//  scale 1.18
-//  transform "normal"
-//}
+output "Samsung Electric Company LS32A70 H4ZT400579" {
+  scale 1.18
+  transform "normal"
+  focus-at-startup
+}
+
+output "Lenovo Group Limited LEN L27q-10 U4345WV4" {
+  scale 1.18
+  transform "normal"
+}
 
 output "eDP-1" {
     scale 1.15
@@ -369,6 +369,3 @@ include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
 include "dms/binds.kdl"
-include "dms/outputs.kdl"
-
-include "dms/cursor.kdl"
