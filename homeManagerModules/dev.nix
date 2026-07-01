@@ -21,6 +21,7 @@
       uv
       age-plugin-yubikey
       opencode
+      github-copilot-cli
     ];
   };
 }
