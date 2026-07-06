@@ -216,6 +216,13 @@ in {
                 template = "  {{ if .Venv }}{{ .Venv }}{{ end }} ";
               }
               {
+                type = "terraform";
+                style = "powerline";
+                foreground = "#000000";
+                background = "#ebcc34";
+                template = "  {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }} ";
+              }
+              {
                 style = "plain";
                 foreground = "p:closer";
                 template = "";
