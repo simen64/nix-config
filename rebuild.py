@@ -166,7 +166,12 @@ def main() -> None:
     # ── 0. Pull latest changes ───────────────────────────────────────────────
     if not args.no_pull:
         section("Pulling latest changes")
-        pull_result = run(["git", "pull"], capture_output=True, text=True)
+        pull_url = "https://github.com/simen64/nix-config.git"
+        branch = run_output(["git", "branch", "--show-current"])
+        pull_cmd = ["git", "pull", pull_url]
+        if branch:
+            pull_cmd.append(branch)
+        pull_result = run(pull_cmd, capture_output=True, text=True)
         if pull_result.returncode != 0:
             error("git pull failed:")
             print(c(RED, pull_result.stderr.strip() or pull_result.stdout.strip()))
