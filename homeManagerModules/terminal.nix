@@ -218,7 +218,7 @@ in {
               {
                 type = "terraform";
                 style = "powerline";
-                foreground = "#7b42bc";
+                foreground = "#D699B6";
                 template = " {{ .WorkspaceName }}{{ if .Version }} {{ .Version }}{{ end }} ";
               }
               {
