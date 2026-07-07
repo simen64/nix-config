@@ -22,6 +22,7 @@
   onePassword.enable = lib.mkDefault true;
   desktop-apps.enable = lib.mkDefault true;
   niri.enable = lib.mkDefault true;
+  netbird.enable = lib.mkDefault true;
 
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   networking.networkmanager.enable = lib.mkDefault true;

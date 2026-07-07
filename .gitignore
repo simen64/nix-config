@@ -1,3 +1,4 @@
 nixos-switch.log
 .DS_Store
 __pycache__
+config/niri/dms/outputs.kdl

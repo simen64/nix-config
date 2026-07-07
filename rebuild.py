@@ -91,6 +91,7 @@ def get_machine() -> str:
     mapping = {
         "simens-laptop": "thinkpad",
         "desktop-p": "desktop-p",
+        "desktop-y": "desktop-y",
     }
     if hostname in mapping:
         return mapping[hostname]
@@ -125,9 +126,7 @@ def get_current_generation(is_darwin: bool) -> str:
             out = run_output(["sudo", "darwin-rebuild", "--list-generations"])
         else:
             priv = privilege_cmd()
-            out = run_output(
-                [*priv, "nixos-rebuild", "list-generations"]
-            )
+            out = run_output([*priv, "nixos-rebuild", "list-generations"])
         for line in out.splitlines():
             if "(current)" in line or (line.split() and line.split()[-1] == "True"):
                 parts = line.split()

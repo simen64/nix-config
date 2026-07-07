@@ -27,12 +27,6 @@ input {
 //  transform "normal"
 //}
 
-output "eDP-1" {
-    scale 1.15
-    transform "normal"
-    position x=1280 y=0
-}
-
 layout {
     gaps 16
 
