@@ -17,6 +17,7 @@ output "PNP(DUS) D32Q0 0x00000001" {
     mode "2560x1440@59.951"
     scale 1
     position x=1080 y=480
+    focus-at-startup
 }
 
 output "eDP-1" {
@@ -25,3 +26,9 @@ output "eDP-1" {
     position x=1280 y=65
 }
 
+window-rule {
+    match app-id="spotify"
+    match app-id="vesktop"
+    open-on-output "HDMI-A-1"
+    default-column-width { proportion 0.75; }
+}
