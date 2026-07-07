@@ -15,6 +15,7 @@
     ./ssh.nix
     ./dev.nix
     ./dms.nix
+    ./home.nix
   ];
 
   # Enable all modules by default
