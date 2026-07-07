@@ -132,6 +132,16 @@ window-rule {
     match title="Firefox"
 }
 
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "1"
+}
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "2"
+}
+
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {

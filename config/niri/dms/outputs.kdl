@@ -30,5 +30,5 @@ window-rule {
     match app-id="spotify"
     match app-id="vesktop"
     open-on-output "HDMI-A-1"
-    default-column-width { proportion 0.75; }
+    open-maximized true
 }
