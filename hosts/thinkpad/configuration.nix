@@ -56,7 +56,7 @@
     xscreensaver.fprintAuth = true;
   };
 
-  hardening.enable = true;
+  hardening.enable = false;
   hardening.hardened_malloc.enable = false;
   run0.enable = true;
 
