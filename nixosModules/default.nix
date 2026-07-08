@@ -55,4 +55,8 @@
   nixpkgs.config.allowUnfree = lib.mkDefault true;
   programs.nix-ld.enable = lib.mkDefault true;
   programs.zsh.enable = lib.mkDefault true;
+  environment.systemPackages = with pkgs; [
+    usbutils
+    pciutils
+  ];
 }
