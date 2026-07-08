@@ -20,6 +20,8 @@
         #  thunderbird
       ];
     };
+
+    users.groups.udev = {};
     nixpkgs.config.allowUnfree = true;
   };
 }
