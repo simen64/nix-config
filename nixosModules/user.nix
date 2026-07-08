@@ -14,7 +14,7 @@
     users.users.simen = {
       isNormalUser = true;
       description = "Simen";
-      extraGroups = ["networkmanager" "wheel" "tss" "dialout" "tty"];
+      extraGroups = ["networkmanager" "wheel" "tss" "dialout" "tty" "udev"];
       shell = pkgs.zsh;
       packages = with pkgs; [
         #  thunderbird
