@@ -43,6 +43,7 @@
       mpv
       gnome-disk-utility
       gnome-text-editor
+      solaar
       (pkgs.symlinkJoin {
         name = "seafile-client";
         paths = [pkgs.seafile-client];
