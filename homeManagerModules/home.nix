@@ -5,7 +5,11 @@
   ...
 }: {
   home.username = "simen";
-  home.homeDirectory = "/home/simen";
+  home.homeDirectory = lib.mkDefault (
+    if pkgs.stdenv.isDarwin
+    then "/Users/simen"
+    else "/home/simen"
+  );
 
   xdg.userDirs = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
