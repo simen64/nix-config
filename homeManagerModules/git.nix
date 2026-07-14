@@ -22,7 +22,10 @@
         user.name = "simen64";
       };
 
-      signing.key = "~/.ssh/id_ed25519_sk_rk";
+      signing.key =
+        if pkgs.stdenv.isDarwin
+        then "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
+        else "~/.ssh/id_ed25519_sk_rk";
       signing.signByDefault = true;
       signing.format = "ssh";
 
