@@ -105,6 +105,7 @@ in {
       envExtra = ''
         export GITHUB_TOKEN=$(cat ~/.github_copilot_token)
         export EDITOR="nvim"
+        export PATH="$HOME/.local/bin:$PATH"
       '';
 
       initContent = ''
