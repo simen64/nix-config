@@ -44,6 +44,7 @@
       gnome-disk-utility
       gnome-text-editor
       solaar
+      displaycal
       (pkgs.symlinkJoin {
         name = "seafile-client";
         paths = [pkgs.seafile-client];

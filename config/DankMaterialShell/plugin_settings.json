@@ -12,14 +12,18 @@
     "enabled": true,
     "lastInstalled": true,
     "lastRunning": true,
-    "lastIp": "100.123.244.240",
-    "lastFqdn": "desktop-p.netbird.selfhosted",
+    "lastIp": "100.123.84.216",
+    "lastFqdn": "desktop-y-84-216.netbird.selfhosted",
     "lastPeerCount": 7,
-    "lastPeerConnected": 7,
+    "lastPeerConnected": 5,
     "showIpAddress": false,
     "colorizeIcon": false,
     "showPing": false,
     "refreshInterval": 25500,
     "adminConsoleUrl": "https://vpn.simenmo.com"
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "bd4708a8c85b4242a088a9bb6e7c12ab"
   }
 }
