@@ -320,8 +320,8 @@
   "iconThemePerMode": false,
   "lastAppliedIconTheme": "",
   "cursorSettings": {
-    "theme": "System Default",
-    "size": 24,
+    "theme": "Adwaita",
+    "size": 18,
     "niri": {
       "hideWhenTyping": false,
       "hideAfterInactiveMs": 0

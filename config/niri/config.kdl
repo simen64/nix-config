@@ -134,11 +134,11 @@ window-rule {
 
 window-rule {
     match app-id="spotify"
-    open-on-workspace "1"
+    open-on-workspace "spotify-ws"
 }
 window-rule {
     match app-id="vesktop"
-    open-on-workspace "2"
+    open-on-workspace "vesktop-ws"
 }
 
 
@@ -176,6 +176,9 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86Tools            allow-when-locked=true { spawn "dms" "ipc" "mpris" "playPause"; }
+    XF86AudioPlay        allow-when-locked=true { spawn "dms" "ipc" "mpris" "playPause"; }
+    XF86Launch5          allow-when-locked=true { spawn "busctl" "--user" "call" "org.mpris.MediaPlayer2.spotify" "/org/mpris/MediaPlayer2" "org.mpris.MediaPlayer2.Player" "PlayPause"; }
 
     Mod+O repeat=false { toggle-overview; }
 
