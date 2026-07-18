@@ -26,6 +26,7 @@
         "org.gnome.baobab"
         "org.prismlauncher.PrismLauncher"
         "com.github.tchx84.Flatseal"
+        "org.fedoraproject.MediaWriter"
       ];
 
       overrides = {
