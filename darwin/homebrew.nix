@@ -41,7 +41,6 @@
       "netbird-ui"
       "caffeine"
       "prismlauncher"
-      "tailscale-app"
     ];
     brews = [
       "mole"
