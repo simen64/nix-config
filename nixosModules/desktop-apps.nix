@@ -44,6 +44,7 @@
       mpv
       gnome-disk-utility
       gnome-text-editor
+      davinci-resolve-studio
       solaar
       displaycal
       (pkgs.symlinkJoin {

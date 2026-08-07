@@ -660,7 +660,7 @@
       "popupGapsManual": 4,
       "maximizeDetection": false,
       "shadowIntensity": 0,
-      "useOverlayLayer": true,
+      "useOverlayLayer": false,
       "hoverPopouts": false
     }
   ],
