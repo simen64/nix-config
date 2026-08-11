@@ -17,6 +17,7 @@
       "raycast"
       "hyperkey"
       "rectangle"
+      "aldente"
 
       ## dev
       "ghostty"
@@ -38,8 +39,7 @@
       "prismlauncher"
       "localsend"
       "obs"
-      "netbird-ui"
-      "caffeine"
+      "netbirdio/tap/netbird-ui"
       "prismlauncher"
     ];
     brews = [
@@ -47,10 +47,9 @@
       "colima"
       "docker"
       "docker-compose"
+      "docker-buildx"
       "ffmpeg"
-    ];
-    taps = [
-      "netbirdio/tap"
+      "netbird"
     ];
   };
 }
