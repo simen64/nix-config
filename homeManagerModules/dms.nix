@@ -57,10 +57,10 @@ in {
     };
 
     home.file = {
-      # ── Shared niri config (same on all machines) ─────────────────────────
-      # Base niri config (keyboard, touchpad, keybinds, etc.)
+      # ── Base niri config ──────────────────────────────────────────────────
       ".config/niri/config.kdl".source = mkLink "${sharedPath}/niri/config.kdl";
-      # DMS auto-generated files — same output from the same DMS settings
+
+      # ── Shared DMS niri configs ───────────────────────────────────────────
       ".config/niri/dms/alttab.kdl".source      = mkLink "${sharedPath}/niri/dms/alttab.kdl";
       ".config/niri/dms/binds.kdl".source       = mkLink "${sharedPath}/niri/dms/binds.kdl";
       ".config/niri/dms/colors.kdl".source      = mkLink "${sharedPath}/niri/dms/colors.kdl";
@@ -68,14 +68,15 @@ in {
       ".config/niri/dms/layout.kdl".source      = mkLink "${sharedPath}/niri/dms/layout.kdl";
       ".config/niri/dms/windowrules.kdl".source = mkLink "${sharedPath}/niri/dms/windowrules.kdl";
       ".config/niri/dms/wpblur.kdl".source      = mkLink "${sharedPath}/niri/dms/wpblur.kdl";
-      # Firefox userChrome CSS
+
+      # ── Firefox userChrome CSS ────────────────────────────────────────────
       ".config/DankMaterialShell/firefox.css".source = mkLink "${sharedPath}/DankMaterialShell/firefox.css";
 
-      # ── Per-host niri config (different monitors / cursor per machine) ─────
+      # ── Per-host niri config ──────────────────────────────────────────────
       ".config/niri/dms/outputs.kdl".source = mkLink "${hostPath}/niri/dms/outputs.kdl";
       ".config/niri/dms/cursor.kdl".source  = mkLink "${hostPath}/niri/dms/cursor.kdl";
 
-      # ── Per-host DMS settings (widget positions are per-monitor) ──────────
+      # ── Per-host DMS settings ─────────────────────────────────────────────
       ".config/DankMaterialShell/settings.json".source =
         mkLink "${hostPath}/DankMaterialShell/settings.json";
       ".config/DankMaterialShell/plugin_settings.json".source =
