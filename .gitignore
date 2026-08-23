@@ -1,4 +1,14 @@
 nixos-switch.log
 .DS_Store
 __pycache__
+
+# niri auto-generated backup files (created when niri overwrites its config)
+config/niri/*.backup*
+config/shared/niri/*.backup*
+config/hosts/*/niri/*.backup*
+config/hosts/*/niri/dms/*.backup*
+
+# Old paths (now split into config/hosts/<hostname>/)
 config/niri/dms/outputs.kdl
+config/DankMaterialShell/settings.json
+config/DankMaterialShell/plugin_settings.json

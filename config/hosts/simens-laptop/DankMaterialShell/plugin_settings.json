@@ -1,0 +1,29 @@
+{
+  "dankBatteryAlerts": {
+    "enabled": true
+  },
+  "displayMirror": {
+    "enabled": true
+  },
+  "tailscale": {
+    "enabled": true
+  },
+  "netbirdStatus": {
+    "enabled": true,
+    "lastInstalled": true,
+    "lastRunning": false,
+    "lastIp": "",
+    "lastFqdn": "",
+    "lastPeerCount": 0,
+    "lastPeerConnected": 0,
+    "showIpAddress": false,
+    "colorizeIcon": false,
+    "showPing": false,
+    "refreshInterval": 25500,
+    "adminConsoleUrl": "https://vpn.simenmo.com"
+  },
+  "dankKDEConnect": {
+    "enabled": true,
+    "selectedDeviceId": "bd4708a8c85b4242a088a9bb6e7c12ab"
+  }
+}

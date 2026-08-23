@@ -110,9 +110,6 @@ in {
       '';
 
       initContent = ''
-        # eval "$(ssh-agent -s)" &>/dev/null
-        eval ~/.zshenv
-
         if [ "$(uname)" = "Darwin" ]; then
           export SSH_AUTH_SOCK="/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
         else

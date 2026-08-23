@@ -20,6 +20,7 @@
 
   services.printing.enable = true;
 
+  home-manager.backupFileExtension = "backup";
   home-manager.users.simen.dms.enable = true;
 
   hardware.graphics.enable = true;

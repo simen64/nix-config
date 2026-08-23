@@ -14,6 +14,7 @@
   xdg.userDirs = lib.mkIf pkgs.stdenv.isLinux {
     enable = true;
     createDirectories = true;
+    setSessionVariables = true;
 
     desktop = "${config.home.homeDirectory}/Desktop";
     documents = "${config.home.homeDirectory}/Documents";
@@ -25,7 +26,7 @@
     publicShare = "${config.home.homeDirectory}/Public";
 
     extraConfig = {
-      XDG_PROJECTS_DIR = "${config.home.homeDirectory}/shared_projects";
+      PROJECTS = "${config.home.homeDirectory}/shared_projects";
     };
   };
 }
