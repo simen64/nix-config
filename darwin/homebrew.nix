@@ -49,7 +49,10 @@
       "docker-compose"
       "docker-buildx"
       "ffmpeg"
-      "netbird"
+      {
+        name = "netbirdio/tap/netbird";
+        trusted = true;
+      }
     ];
   };
 }
