@@ -23,11 +23,11 @@
   home-manager.backupFileExtension = "backup";
   home-manager.users.simen.dms.enable = true;
 
+  # nvidia drivers
   hardware.graphics.enable = true;
-  hardware.nvidia.modesetting.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia.open = false;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+  hardware.nvidia.open = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   programs.firefox.enable = true;
   netbird.enable = true;

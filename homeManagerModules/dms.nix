@@ -51,6 +51,7 @@ in {
 
       plugins = {
         dankBatteryAlerts.src = inputs.dms-plugins + "/DankBatteryAlerts";
+        dankPomodoroTimer.src = inputs.dms-plugins + "/DankPomodoroTimer";
         dms-display-mirror.src = inputs.dms-display-mirror;
         NetbirdStatus.src = inputs.dms-plugins-dadangdut33 + "/NetbirdStatus";
       };
@@ -61,20 +62,20 @@ in {
       ".config/niri/config.kdl".source = mkLink "${sharedPath}/niri/config.kdl";
 
       # ── Shared DMS niri configs ───────────────────────────────────────────
-      ".config/niri/dms/alttab.kdl".source      = mkLink "${sharedPath}/niri/dms/alttab.kdl";
-      ".config/niri/dms/binds.kdl".source       = mkLink "${sharedPath}/niri/dms/binds.kdl";
-      ".config/niri/dms/colors.kdl".source      = mkLink "${sharedPath}/niri/dms/colors.kdl";
-      ".config/niri/dms/input.kdl".source       = mkLink "${sharedPath}/niri/dms/input.kdl";
-      ".config/niri/dms/layout.kdl".source      = mkLink "${sharedPath}/niri/dms/layout.kdl";
+      ".config/niri/dms/alttab.kdl".source = mkLink "${sharedPath}/niri/dms/alttab.kdl";
+      ".config/niri/dms/binds.kdl".source = mkLink "${sharedPath}/niri/dms/binds.kdl";
+      ".config/niri/dms/colors.kdl".source = mkLink "${sharedPath}/niri/dms/colors.kdl";
+      ".config/niri/dms/input.kdl".source = mkLink "${sharedPath}/niri/dms/input.kdl";
+      ".config/niri/dms/layout.kdl".source = mkLink "${sharedPath}/niri/dms/layout.kdl";
       ".config/niri/dms/windowrules.kdl".source = mkLink "${sharedPath}/niri/dms/windowrules.kdl";
-      ".config/niri/dms/wpblur.kdl".source      = mkLink "${sharedPath}/niri/dms/wpblur.kdl";
+      ".config/niri/dms/wpblur.kdl".source = mkLink "${sharedPath}/niri/dms/wpblur.kdl";
 
       # ── Firefox userChrome CSS ────────────────────────────────────────────
       ".config/DankMaterialShell/firefox.css".source = mkLink "${sharedPath}/DankMaterialShell/firefox.css";
 
       # ── Per-host niri config ──────────────────────────────────────────────
       ".config/niri/dms/outputs.kdl".source = mkLink "${hostPath}/niri/dms/outputs.kdl";
-      ".config/niri/dms/cursor.kdl".source  = mkLink "${hostPath}/niri/dms/cursor.kdl";
+      ".config/niri/dms/cursor.kdl".source = mkLink "${hostPath}/niri/dms/cursor.kdl";
 
       # ── Per-host DMS settings ─────────────────────────────────────────────
       ".config/DankMaterialShell/settings.json".source =

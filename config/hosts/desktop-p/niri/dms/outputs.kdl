@@ -16,7 +16,7 @@ output "Hewlett Packard HP Z24nf CN45311CMC" {
 output "Lenovo Group Limited LEN L27q-10 U4345WV4" {
     mode "2560x1440@59.951"
     scale 1
-    position x=3072 y=369
+    position x=3072 y=81
 }
 
 output "PNP(DUS) D32Q0 0x00000001" {
