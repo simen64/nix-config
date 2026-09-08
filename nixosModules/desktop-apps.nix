@@ -47,6 +47,7 @@
       davinci-resolve-studio
       solaar
       displaycal
+      blender
       (pkgs.symlinkJoin {
         name = "seafile-client";
         paths = [pkgs.seafile-client];
