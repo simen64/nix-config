@@ -48,6 +48,7 @@
       solaar
       displaycal
       blender
+      codex
       (pkgs.symlinkJoin {
         name = "seafile-client";
         paths = [pkgs.seafile-client];
