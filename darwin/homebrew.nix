@@ -24,6 +24,7 @@
       "secretive"
       "copilot-cli"
       "figma"
+      "chatgpt"
 
       ## messaging
       "signal"

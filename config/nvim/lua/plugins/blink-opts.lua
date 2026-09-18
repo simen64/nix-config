@@ -4,7 +4,6 @@ return {
     opts = {
       snippets = { preset = "luasnip" },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
         providers = {
           snippets = {
             min_keyword_length = 1,
@@ -23,18 +22,13 @@ return {
             score_offset = 2,        -- Increased to match path
           },
         },
-        per_filetype = {
-          codecompanion = { "codecompanion" },
-        },
       },
       -- Improve relevance sorting to better prioritize variables
-      sorting = {
-        comparators = {
+      fuzzy = {
+        sorts = {
           "score",
-          "recently_used",
           "kind",
-          "length",
-          "offset",
+          "sort_text",
         },
       },
     },

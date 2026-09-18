@@ -1,0 +1,13 @@
+WRN 2026-09-15T10:35:53.844 ?.22609    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/bY2Edy/nvim.22609.0
+WRN 2026-09-15T10:36:13.859 ?.22651    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/KOhOEI/nvim.22651.0
+WRN 2026-09-15T10:36:28.293 ?.22700    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/BqNiy9/nvim.22700.0
+WRN 2026-09-15T10:36:42.798 ?.22752    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/Ma5mw0/nvim.22752.0
+WRN 2026-09-15T10:36:54.027 ?.22774    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/Dv8wT6/nvim.22774.0
+WRN 2026-09-15T10:37:00.715 ?.22805    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/ptWNJI/nvim.22805.0
+WRN 2026-09-15T10:37:10.177 ?.22846    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/DSkMhX/nvim.22846.0
+WRN 2026-09-15T10:37:31.201 ?.22905    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/9AHAkM/nvim.22905.0
+WRN 2026-09-15T10:38:40.398 ?.23037    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/eyAeEB/nvim.23037.0
+WRN 2026-09-15T10:38:40.398 ?.23036    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/Q67hCZ/nvim.23036.0
+WRN 2026-09-15T10:38:46.485 ?.23096    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/cbkg6x/nvim.23096.0
+WRN 2026-09-15T10:39:20.532 ?.23179    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/zuOJOS/nvim.23179.0
+WRN 2026-09-15T10:39:20.532 ?.23180    server_start:197: Failed to start server: operation not permitted: /var/folders/r8/xptrxdy507x3srhr_d846kwr0000gn/T/nvim.simen/XO1Grp/nvim.23180.0
