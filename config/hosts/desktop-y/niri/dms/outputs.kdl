@@ -14,3 +14,10 @@ output "PNP(DUS) D32Q0 0x00000001" {
     focus-at-startup
 }
 
+window-rule {
+    match app-id="spotify"
+    match app-id="vesktop"
+    open-on-output "HDMI-A-1"
+    open-maximized true
+}
+

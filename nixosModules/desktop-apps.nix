@@ -3,7 +3,17 @@
   lib,
   config,
   ...
-}: {
+}: let
+  davinciResolveStudioX11 = pkgs.symlinkJoin {
+    name = "davinci-resolve-studio-x11";
+    paths = [pkgs.davinci-resolve-studio];
+    nativeBuildInputs = [pkgs.makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/davinci-resolve-studio \
+        --set QT_QPA_PLATFORM xcb
+    '';
+  };
+in {
   options = {
     desktop-apps = {
       enable = lib.mkEnableOption "Enable desktop-apps module";
@@ -27,6 +37,7 @@
         "org.prismlauncher.PrismLauncher"
         "com.github.tchx84.Flatseal"
         "org.fedoraproject.MediaWriter"
+        "com.ultimaker.cura"
       ];
 
       overrides = {
@@ -44,7 +55,7 @@
       mpv
       gnome-disk-utility
       gnome-text-editor
-      davinci-resolve-studio
+      davinciResolveStudioX11
       solaar
       displaycal
       blender

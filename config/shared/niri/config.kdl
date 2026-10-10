@@ -127,6 +127,11 @@ window-rule {
   open-floating true
 }
 
+window-rule {
+    match app-id="resolve"
+    open-fullscreen false
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match title="Firefox"

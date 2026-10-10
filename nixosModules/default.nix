@@ -24,6 +24,23 @@
   niri.enable = lib.mkDefault true;
   netbird.enable = lib.mkDefault true;
 
+  fonts = {
+    fontDir.enable = true;
+
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
+      corefonts
+    ];
+  };
+
   boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   networking.networkmanager.enable = lib.mkDefault true;
   time.timeZone = lib.mkDefault "Europe/Oslo";
