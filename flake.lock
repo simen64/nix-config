@@ -282,6 +282,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-davinci": {
+      "locked": {
+        "lastModified": 1784983964,
+        "narHash": "sha256-mReUMYYZ8zKPt0WootLEENkt7ImcAS5/8vwC+NgVzKM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5e002b0a52dba3517db92219abfe5dffac9f1d90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5e002b0a52dba3517db92219abfe5dffac9f1d90",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1777168982,
@@ -325,7 +341,8 @@
         "nix-flatpak": "nix-flatpak",
         "nix-homebrew": "nix-homebrew",
         "nix-mineral": "nix-mineral",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-davinci": "nixpkgs-davinci"
       }
     }
   },

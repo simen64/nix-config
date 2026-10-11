@@ -32,3 +32,13 @@ output "eDP-1" {
     position x=3438 y=65
 }
 
+window-rule {
+    match app-id=r#"^resolve$"#
+    open-fullscreen false
+    open-maximized true
+}
+
+window-rule {
+    match app-id=r#"^resolve$"# title=r#"^Project Manager$"#
+    open-floating true
+}
