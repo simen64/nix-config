@@ -34,6 +34,7 @@
       "seafile-client"
       "seadrive"
       "1password"
+      "blender"
       "obsidian"
       "spotify"
       "firefox"
