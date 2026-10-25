@@ -20,8 +20,7 @@
       python3
       uv
       age-plugin-yubikey
-      opencode
-      github-copilot-cli
+      cloudflared
     ];
   };
 }
