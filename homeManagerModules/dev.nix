@@ -22,6 +22,7 @@
       age-plugin-yubikey
       cloudflared
       dart
+      claude-code
     ];
   };
 }
