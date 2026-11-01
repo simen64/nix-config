@@ -71,7 +71,10 @@ in {
       ".config/niri/dms/wpblur.kdl".source = mkLink "${sharedPath}/niri/dms/wpblur.kdl";
 
       # ── Firefox userChrome CSS ────────────────────────────────────────────
-      ".config/DankMaterialShell/firefox.css".source = mkLink "${sharedPath}/DankMaterialShell/firefox.css";
+      ".config/DankMaterialShell/firefox.css" = {
+        source = mkLink "${sharedPath}/DankMaterialShell/firefox.css";
+        force = true;
+      };
 
       # ── Per-host niri config ──────────────────────────────────────────────
       ".config/niri/dms/outputs.kdl".source = mkLink "${hostPath}/niri/dms/outputs.kdl";
