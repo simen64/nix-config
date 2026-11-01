@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: let
   davinciResolveStudioX11 = pkgs.symlinkJoin {
@@ -14,6 +15,8 @@
     '';
   };
 in {
+  imports = [inputs.claude-desktop.nixosModules.default];
+
   options = {
     desktop-apps = {
       enable = lib.mkEnableOption "Enable desktop-apps module";
@@ -22,6 +25,7 @@ in {
 
   config = lib.mkIf config.desktop-apps.enable {
     programs.firefox.enable = true;
+    programs.claude-desktop.enable = true;
 
     services.flatpak = {
       enable = true;

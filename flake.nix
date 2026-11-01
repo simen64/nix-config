@@ -33,6 +33,11 @@
       inputs.dgop.follows = "dgop";
     };
 
+    claude-desktop = {
+      url = "github:poeck/claude-desktop-nix-flake/55ba585546fe222bf18f391a98c1ee60f79684d2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     dms-plugins = {
       url = "github:AvengeMedia/dms-plugins";
       flake = false;
