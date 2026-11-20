@@ -6,6 +6,9 @@
       autoUpdate = false;
       upgrade = true;
       cleanup = "zap";
+      # brew bundle upgrades and zaps silently after the last "Using ..." line,
+      # which looks like a hang. Show what it is doing.
+      extraFlags = ["--verbose"];
     };
 
     global.brewfile = true;
@@ -37,7 +40,6 @@
       "localsend"
       "obs"
       "netbirdio/tap/netbird-ui"
-      "prismlauncher"
     ];
     brews = [
       "mole"

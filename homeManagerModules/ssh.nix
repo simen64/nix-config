@@ -59,10 +59,12 @@ in {
           IdentitiesOnly = true;
           IdentityFile = "~/.ssh/secretive_github.pub";
         };
+        # macOS blocks ssh from reading Secretive's container, so point at the
+        # inlined copy of the Github-auth key instead of ${secretivePubKeys}
         github-nix = {
           HostName = "github.com";
           IdentitiesOnly = true;
-          IdentityFile = "${secretivePubKeys}/eaae56d2662da0f16eac5f350789bc03.pub";
+          IdentityFile = "~/.ssh/secretive_github.pub";
         };
         github-noteapp = {
           HostName = "github.com";
