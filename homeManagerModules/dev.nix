@@ -23,7 +23,6 @@
       cloudflared
       claude-code
       flutter
-      github-cli
     ];
   };
 }

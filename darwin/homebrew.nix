@@ -17,18 +17,13 @@
       "raycast"
       "hyperkey"
       "rectangle"
-      "aldente"
 
       ## dev
       "ghostty"
       "secretive"
-      "copilot-cli"
       "figma"
-      "chatgpt"
 
       ## messaging
-      "signal"
-      "element"
 
       ## other
       "seafile-client"

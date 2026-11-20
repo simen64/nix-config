@@ -24,32 +24,23 @@
 
       signing.key =
         if pkgs.stdenv.isDarwin
-        then "/Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub"
+        # Inline: macOS blocks other apps from reading Secretive's container, so its .pub files can't be used here
+        then "key::ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFFr3is/CNJe6Z2MHtpBAjk3nTrBnD2uMS8LK2MQMcbBM1A72Cw0+wdi+Anc/o6B3UvCdw2wB5gPd6ktQr/g5oY="
         else "~/.ssh/id_ed25519_sk_rk";
       signing.signByDefault = true;
       signing.format = "ssh";
 
-      includes =
-        (lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
-          {
-            condition = "gitdir:~/nix/";
-            path = pkgs.writeText "nix-repo-gitconfig" ''
-              [user]
-                signingKey = /Users/simen/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/fedda82f4d015e82453dd083b4a90cc3.pub
-            '';
-          }
-        ])
-        ++ (lib.optionals pkgs.stdenv.isLinux [
-          {
-            condition = "gitdir:/etc/nixos/";
-            path = pkgs.writeText "nixos-repo-gitconfig" ''
-              [user]
-                signingKey = ~/.ssh/tpm_key_signing.pub
-              [core]
-                sshCommand = "ssh -o IdentityAgent=$XDG_RUNTIME_DIR/ssh-tpm-agent.sock -o IdentitiesOnly=true -o IdentityFile=~/.ssh/tpm_key.pub"
-            '';
-          }
-        ]);
+      includes = lib.optionals pkgs.stdenv.isLinux [
+        {
+          condition = "gitdir:/etc/nixos/";
+          path = pkgs.writeText "nixos-repo-gitconfig" ''
+            [user]
+              signingKey = ~/.ssh/tpm_key_signing.pub
+            [core]
+              sshCommand = "ssh -o IdentityAgent=$XDG_RUNTIME_DIR/ssh-tpm-agent.sock -o IdentitiesOnly=true -o IdentityFile=~/.ssh/tpm_key.pub"
+          '';
+        }
+      ];
     };
 
     services = {

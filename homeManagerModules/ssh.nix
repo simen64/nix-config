@@ -29,7 +29,7 @@ in {
     ];
 
     home.file.".ssh/secretive_github.pub" = lib.mkIf pkgs.stdenv.isDarwin {
-      text = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPRmlZbDw1Owbg2X4fxlb34VMExi/kx6T4txnJGq1MECBp96vB76qhHuEPpj3/iy7gCgIHm/6fcflRKpT6cgcNE= github@secretive\n";
+      text = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHmhjK/4hYo8nU8d2pvmMuOmxrBgxWntCwJbZ5mFx5U2dvabtvSMTGHoRc+X7V6ZzIHmu7GH4fn1Xuion6/gYKs= Github-auth@secretive.Simen’s-MacBook-Air\n";
     };
 
     programs.ssh = lib.mkIf pkgs.stdenv.isDarwin {
