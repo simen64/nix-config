@@ -3,21 +3,7 @@
   lib,
   config,
   ...
-}: let
-  # DaVinci Resolve's resizable Project Manager dialog is otherwise
-  # misclassified as a popup and never appears under niri.
-  # https://github.com/Supreeeme/xwayland-satellite/pull/480
-  xwaylandSatelliteResolve = pkgs.xwayland-satellite.overrideAttrs (old: {
-    patches =
-      (old.patches or [])
-      ++ [
-        (pkgs.fetchpatch {
-          url = "https://github.com/lildengzi/xwayland-satellite/commit/a8f8eeac96d7f5b6e83a49ebd7f294e9a3879f22.patch";
-          hash = "sha256-79Oza6gwuWvOH5GTsD8ujEDENf0buofOZwwRwdTagQw=";
-        })
-      ];
-  });
-in {
+}: {
   options = {
     niri = {
       enable = lib.mkEnableOption "Enable niri module";
@@ -45,7 +31,7 @@ in {
       wl-mirror
       brightnessctl
       gnome-keyring
-      #xwaylandSatelliteResolve
+      xwayland-satellite
       adwaita-icon-theme
       hicolor-icon-theme
       nautilus

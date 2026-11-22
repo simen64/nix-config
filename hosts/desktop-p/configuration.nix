@@ -32,6 +32,9 @@
   programs.firefox.enable = true;
   netbird.enable = true;
 
+  # Type the LUKS password with the Bluetooth MX Keys Mini
+  initrd-bluetooth.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   xdg.portal = {
@@ -45,21 +48,6 @@
       common.default = ["gnome"];
     };
   };
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      xwayland-satellite = prev.xwayland-satellite.overrideAttrs (old: {
-        patches =
-          (old.patches or [])
-          ++ [
-            (final.fetchpatch {
-              url = "https://github.com/Supreeeme/xwayland-satellite/commit/a8f8eeac96d7f5b6e83a49ebd7f294e9a3879f22.patch";
-              hash = "sha256-LQv2DiL5vphwTzOYp+ObInQvdOf9f2F5pWRQUWm9D+E=";
-            })
-          ];
-      });
-    })
-  ];
 
   system.stateVersion = "25.05";
 }

@@ -16,6 +16,7 @@
     ./boot.nix
     ./hardening.nix
     ./run0.nix
+    ./initrd-bluetooth.nix
   ];
 
   user.enable = lib.mkDefault true;
