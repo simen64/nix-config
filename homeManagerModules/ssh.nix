@@ -71,7 +71,6 @@ in {
           IdentitiesOnly = true;
           IdentityFile = "${secretivePubKeys}/4d40ef461bc137ac80987045f8e8018c.pub";
         };
-
         # Default: Secretive agent for everything else
         "*" = {
           IdentityAgent = secretiveAgent;
@@ -79,6 +78,15 @@ in {
           SetEnv.TERM = "xterm-256color";
           ServerAliveInterval = 10;
         };
+      };
+      matchBlocks."homelab" = {
+        host = "100.123.* 135.181.35.96";
+        identitiesOnly = true;
+        identityAgent = "none";
+        identityFile = [
+          "~/.ssh/id_ed25519_sk_rk-USB-C"
+          "~/.ssh/id_ed25519_sk_rk"
+        ];
       };
     };
   };
