@@ -12,7 +12,6 @@
     ./niri.nix
     ./netbird.nix
     ../modules/nix.nix
-    ../modules/ca-blacklist.nix
     ./boot.nix
     ./hardening.nix
     ./run0.nix

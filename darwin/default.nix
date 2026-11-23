@@ -9,7 +9,6 @@
     ./homebrew.nix
     ./settings.nix
     ../modules/nix.nix
-    ../modules/ca-blacklist.nix
     inputs.nix-homebrew.darwinModules.nix-homebrew
   ];
 
